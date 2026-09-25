@@ -12,17 +12,17 @@ import {
 const Footer = () => {
   const LINKS: LinksProps[] = [
     {
-      link: "https://x.com/iamvijaybansal",
+      link: "https://x.com/vijaybansalll",
       Icon: <X />,
       name: "X formally Twitter",
     },
     {
-      link: "https://www.linkedin.com/in/vijay-bansal-319048249/",
+      link: "https://www.linkedin.com/in/vijaybansalll",
       Icon: <LinkedIn />,
       name: "LinkedIn",
     },
     {
-      link: "https://github.com/VijayBansal2004",
+      link: "https://github.com/vijaybansalll",
       Icon: <GitHub />,
       name: "GitHub",
     },
