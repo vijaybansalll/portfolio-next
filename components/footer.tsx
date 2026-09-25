@@ -27,6 +27,7 @@ const Footer = () => {
       name: "GitHub",
     },
   ];
+
   return (
     <Block>
       <div className="text-vj-secondary dark:text-vj-secondary-dark flex items-center justify-between gap-2 text-xs">
