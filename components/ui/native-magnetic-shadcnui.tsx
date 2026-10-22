@@ -58,6 +58,8 @@ const springTransition: Transition = {
   damping: 25,
 };
 
+const MotionButton = motion(Button);
+
 export function NativeMagnetic({
   children,
   strength = 0.05,
@@ -127,7 +129,6 @@ export function NativeMagnetic({
   }
 
   if (as === "button") {
-    const MotionButton = motion(Button);
     return (
       <MotionButton
         ref={ref as React.RefObject<HTMLButtonElement>}

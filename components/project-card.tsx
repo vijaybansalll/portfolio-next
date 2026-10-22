@@ -5,8 +5,6 @@ import Image from "next/image";
 import { Para } from "./para";
 import { AvatarGroup } from "./ui/avatar-group";
 import { motion } from "motion/react";
-import Link from "next/link";
-import { Lens } from "./ui/lens";
 import { Pointer } from "./ui/pointer";
 import { cn } from "@/lib/utils";
 
@@ -53,13 +51,6 @@ export const ProjectCard = ({
           <div className="relative flex h-full flex-col gap-6 overflow-hidden rounded-md">
             <div className="relative flex flex-col gap-3">
               <div className="h-full max-h-37.5 w-full overflow-hidden rounded-lg">
-                {/* <Lens
-                  zoomFactor={3}
-                  lensSize={150}
-                  isStatic={false}
-                  ariaLabel="Zoom Area"
-                >
-                  </Lens> */}
                 <Image
                   src={img}
                   alt={title}

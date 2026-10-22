@@ -1,13 +1,15 @@
-import Link from "next/link";
+"use client";
+
 import { Block } from "./block";
 import { LinksProps } from "@/types/types";
 import { GitHub, LinkedIn, X } from "./icons";
-import { TextHoverEffect } from "@/components/ui/text-hover-effect";
 import {
   Tooltip,
   TooltipContent,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+import Link from "next/link";
+import { Signature } from "./ui/signature";
 
 const Footer = () => {
   const LINKS: LinksProps[] = [
@@ -30,6 +32,13 @@ const Footer = () => {
 
   return (
     <Block>
+      <Signature
+        text="Vijay Bansal"
+        fontSize={15}
+        duration={7}
+        inView={true}
+        className="mx-auto mb-7"
+      />
       <div className="text-vj-secondary dark:text-vj-secondary-dark flex items-center justify-between gap-2 text-xs">
         <p>
           Built with love by{" "}
@@ -56,9 +65,6 @@ const Footer = () => {
             </Tooltip>
           ))}
         </div>
-      </div>
-      <div className="hidden max-h-55 w-full overflow-hidden mask-[linear-gradient(to_bottom,transparent,black_25%,black_75%,transparent)] sm:block">
-        <TextHoverEffect text="VIJAY" />
       </div>
     </Block>
   );

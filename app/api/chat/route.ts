@@ -1,11 +1,18 @@
 import OpenAI from "openai";
 import { NextResponse } from "next/server";
 
-// 🔹 OpenRouter client
-const openai = new OpenAI({
-  baseURL: "https://openrouter.ai/api/v1",
-  apiKey: process.env?.OPENROUTER_API_KEY,
-});
+// Initialize OpenAI client lazily inside the handler (will be created when request arrives)
+let openaiClient: OpenAI | null = null;
+
+function getOpenAIClient(): OpenAI {
+  if (!openaiClient) {
+    openaiClient = new OpenAI({
+      baseURL: "https://openrouter.ai/api/v1",
+      apiKey: process.env.OPENROUTER_API_KEY || "",
+    });
+  }
+  return openaiClient;
+}
 
 // 🔹 Predefined answers (instant + smart)
 const predefinedAnswers: Record<string, string> = {
@@ -130,7 +137,7 @@ export async function POST(req: Request) {
     const { messages, mode, content } = await req.json();
 
     if (mode === "summary") {
-      const completion = await openai.chat.completions.create({
+      const completion = await getOpenAIClient().chat.completions.create({
         model: "openai/gpt-3.5-turbo",
         messages: [
           {
@@ -169,7 +176,7 @@ export async function POST(req: Request) {
     }
 
     // ✅ 2. AI fallback (OpenRouter)
-    const completion = await openai.chat.completions.create({
+    const completion = await getOpenAIClient().chat.completions.create({
       model: "openai/gpt-3.5-turbo",
 
       messages: [
@@ -186,11 +193,12 @@ export async function POST(req: Request) {
         content: completion.choices[0].message.content,
       },
     });
-  } catch (err: any) {
-    console.error("ERROR:", err?.message || err);
+  } catch (err: unknown) {
+    const errorMessage = err instanceof Error ? err.message : "Something went wrong";
+    console.error("ERROR:", errorMessage);
 
     return NextResponse.json(
-      { error: err?.message || "Something went wrong" },
+      { error: errorMessage },
       { status: 500 },
     );
   }
