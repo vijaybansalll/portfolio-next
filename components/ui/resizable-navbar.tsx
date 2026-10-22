@@ -241,7 +241,7 @@ export const MobileNavToggle = ({
   );
 };
 
-export const NavbarLogo = () => {
+export const NavbarLogo = ({ className }: { className?: string }) => {
   return (
     <Link href="/" className="relative z-20">
       <Image
@@ -249,7 +249,7 @@ export const NavbarLogo = () => {
         alt="logo"
         width={40}
         height={40}
-        className="rounded-full"
+        className={cn("rounded-full", className)}
       />
     </Link>
   );

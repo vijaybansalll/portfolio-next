@@ -7,14 +7,5 @@ export const Block = ({
   children: React.ReactNode;
   className?: string;
 }) => {
-  return (
-    <div
-      className={cn(
-        "shadow-section-inset dark:shadow-section-inset-dark border-y border-neutral-100 px-4 py-8 dark:border-neutral-800",
-        className,
-      )}
-    >
-      {children}
-    </div>
-  );
+  return <div className={cn("px-4 py-8", className)}>{children}</div>;
 };

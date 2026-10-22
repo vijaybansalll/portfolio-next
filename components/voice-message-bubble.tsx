@@ -89,8 +89,11 @@ export default function VoiceMessageBubble({
   }, []);
 
   const bars = React.useMemo(() => {
-    return Array.from({ length: barCount }).map(() => 4 + Math.random() * 12);
+    return Array.from({ length: barCount }).map(
+      (_, i) => 4 + (((i * 7 + 3) % 11) / 10) * 12,
+    );
   }, [barCount]);
+
   return (
     <div
       className={cn(
@@ -111,20 +114,25 @@ export default function VoiceMessageBubble({
         </TooltipContent>
       </Tooltip>
 
-      {/* Wave + Progress */}
-      <div className="relative flex h-8 flex-1 items-center justify-between px-1">
-        {bars.map((height, idx) => (
-          <div
-            key={idx}
-            className="w-0.5 rounded-sm bg-neutral-900 dark:bg-neutral-100"
-            style={{ height: `${height}px` }}
-          />
-        ))}
+      {/* Waveform Bars */}
+      <div className="flex h-5 w-full items-center gap-0.5 overflow-hidden">
+        {bars.map((height, i) => {
+          const barPercent = (i / bars.length) * 100;
+          const isActive = barPercent <= progress;
 
-        <div
-          className="absolute top-0 left-0 h-full rounded bg-neutral-400/30"
-          style={{ width: `${progress}%` }}
-        />
+          return (
+            <span
+              key={i}
+              className={cn(
+                "w-0.5 rounded-full transition-all duration-150",
+                isActive ? "bg-black dark:bg-white" : "bg-neutral-300 dark:bg-neutral-600",
+              )}
+              style={{
+                height: `${height}px`,
+              }}
+            />
+          );
+        })}
       </div>
     </div>
   );

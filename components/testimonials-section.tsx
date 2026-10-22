@@ -9,8 +9,8 @@ const thirdColumn = testimonials.slice(6, 9);
 
 const TestimonialSection = () => {
   return (
-    <Block>
-      <SectionHeading className="mb-12">People love my work</SectionHeading>
+    <Block className="pb-0">
+      <SectionHeading className="mb-5">People love my work</SectionHeading>
       <div className="flex max-h-100 justify-center gap-4 overflow-hidden mask-[linear-gradient(to_bottom,transparent,black_25%,black_75%,transparent)]">
         <Testimonials testimonials={firstColumn} duration={23} />
         <Testimonials

@@ -9,6 +9,8 @@ import { cn } from "@/lib/utils";
 
 interface AnimatedThemeTogglerProps extends React.ComponentPropsWithoutRef<"button"> {
   duration?: number;
+  size?: number;
+  iconClassName?: string;
 }
 
 const emptySubscribe = () => () => {};
@@ -16,6 +18,8 @@ const emptySubscribe = () => () => {};
 export const AnimatedThemeToggler = ({
   className,
   duration = 500,
+  size = 15,
+  iconClassName,
   ...props
 }: AnimatedThemeTogglerProps) => {
   const { resolvedTheme, setTheme } = useTheme();
@@ -78,7 +82,11 @@ export const AnimatedThemeToggler = ({
       )}
       {...props}
     >
-      {isDark ? <Sun size={15} /> : <Moon size={15} />}
+      {isDark ? (
+        <Sun size={size} className={cn("transition-transform", iconClassName)} />
+      ) : (
+        <Moon size={size} className={cn("transition-transform", iconClassName)} />
+      )}
       <span className="sr-only">Toggle theme</span>
     </button>
   );

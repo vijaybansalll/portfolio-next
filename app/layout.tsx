@@ -5,8 +5,10 @@ import { Inter } from "next/font/google";
 import Footer from "@/components/footer";
 import { ThemeProvider } from "next-themes";
 import { Chatbot } from "@/components/chatbot";
-import NavigationBar from "@/components/navbar";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import FloatingDockDemo from "@/components/floating-dock-demo";
+import GradientASCII from "../components/GradientASCII";
+import HomeHeroSection from "@/sections/HomeHeroSection";
 
 export const metadata: Metadata = {
   title: "Vijay Bansal",
@@ -27,15 +29,44 @@ export default function RootLayout({
       >
         <ThemeProvider attribute="class" defaultTheme="system">
           <TooltipProvider>
-            <div className="relative mx-auto h-full min-h-screen w-full max-w-4xl bg-white px-0 pt-20 md:px-8 md:pt-20 md:pb-0 dark:bg-neutral-900">
-              <div className="absolute top-0 left-0 hidden h-full w-4 border-x border-x-(--pattern-fg) bg-[repeating-linear-gradient(315deg,var(--pattern-fg)_0,var(--pattern-fg)_1px,transparent_0,transparent_50%)] bg-size-[10px_10px] bg-fixed md:block md:w-8 dark:border-x-(--pattern-fg-dark) dark:bg-[repeating-linear-gradient(315deg,var(--pattern-fg-dark)_0,var(--pattern-fg-dark)_1px,transparent_0,transparent_50%)]"></div>
-              <NavigationBar />
-              {children}
-              <Footer />
-              <div className="absolute top-0 right-0 hidden h-full w-4 border-x border-x-(--pattern-fg) bg-[repeating-linear-gradient(315deg,var(--pattern-fg)_0,var(--pattern-fg)_1px,transparent_0,transparent_50%)] bg-size-[10px_10px] bg-fixed md:block md:w-8 dark:border-x-(--pattern-fg-dark) dark:bg-[repeating-linear-gradient(315deg,var(--pattern-fg-dark)_0,var(--pattern-fg-dark)_1px,transparent_0,transparent_50%)]"></div>
+            <div className="relative mx-auto h-full min-h-screen w-full bg-white dark:bg-neutral-900">
+              <div
+                // style={{ width: "100%", height: "400px", position: "relative" }}
+                className="relative h-70 w-full md:h-90"
+              >
+                <GradientASCII
+                  colors={["#1e3fd8", "#f6f8ff", "#a5d8ff", "#38bdf8"]}
+                  shape="horizon"
+                  characters=" =+xX0S8#@"
+                  cellSize={20}
+                  density={0.8}
+                  glyphOpacity={0.1}
+                  glow={0.2}
+                  depthOfField={0}
+                  flicker={0.2}
+                  softness={1}
+                  scale={1}
+                  flow={0.5}
+                  speed={0.1}
+                  gradientOpacity={0.9}
+                  grain={0.2}
+                  variation={0}
+                  mouseInteraction
+                  scrambleRadius={0.1}
+                  clickEffect="wave"
+                  intro
+                  lightMode={false}
+                />
+              </div>
+              <div className="relative mx-auto h-full w-full max-w-4xl px-0 pt-0 md:px-8 md:pb-0">
+                <HomeHeroSection />
+                {children}
+                <Footer />
+              </div>
             </div>
             <Toaster position="top-center" />
             <Chatbot />
+            <FloatingDockDemo />
           </TooltipProvider>
         </ThemeProvider>
       </body>

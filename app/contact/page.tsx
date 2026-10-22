@@ -5,7 +5,7 @@ import ContactContactFormSection from "@/sections/ContactContactFormSection";
 
 const ContactPage = () => {
   return (
-    <div>
+    <div className="m-auto max-w-lg">
       <ContactHeroSection />
       <ContactContactFormSection />
     </div>

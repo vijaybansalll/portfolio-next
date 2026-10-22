@@ -56,7 +56,7 @@ const ContactContactFormSection = () => {
     <Block>
       <form
         onSubmit={handleSubmit(formSubmit)}
-        className="mx-auto flex max-w-lg flex-col gap-6"
+        className="mx-auto flex flex-col gap-6"
       >
         {/* Name */}
         <InputContainer className="relative">
