@@ -16,7 +16,7 @@ const AboutHeroSection = () => {
         <div>
           <Heading>About Me</Heading>
           <Para className="max-w-lg pt-4 text-sm md:text-base">
-            Hi, I&apos;m Vijay Bansal — a Frontend Developer specializing in
+            Hi, I&apos;m Vijay Bansal, A Frontend Developer specializing in
             React and Next.js. I build modern, high-performance web applications
             with a strong focus on clean UI, performance, and seamless user
             experiences. I enjoy transforming complex problems into intuitive

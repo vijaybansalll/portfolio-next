@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { Para } from "./para";
-import Link from "next/link";
+// import Link from "next/link";
 import { AvatarGroup } from "./ui/avatar-group";
 import {
   Bootstrap,
@@ -17,7 +17,7 @@ import { WORK_COMPANIES_PROPS } from "@/types/types";
 const WorkCard = ({
   companyName,
   companyLogo,
-  companyUrl = "#",
+  // companyUrl = "#",
   role,
   duration,
   description,
@@ -75,9 +75,9 @@ const WorkCard = ({
         />
       </div>
       <div className="hidden flex-1 sm:block">
-        <Link href={companyUrl} target="_blank">
-          <Image src={companyLogo} alt="Webcom Logo" width={150} height={150} />
-        </Link>
+        {/* <Link href={companyUrl} target="_blank"> */}
+        <Image src={companyLogo} alt="Webcom Logo" width={150} height={150} />
+        {/* </Link> */}
       </div>
     </div>
   );

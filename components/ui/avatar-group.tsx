@@ -89,7 +89,7 @@ const AvatarGroup = ({ className, avatarUrls }: AvatarGroupProps) => {
                 <span
                   className={cn(
                     "block text-xs whitespace-nowrap",
-                    "text-vj-secondary dark:text-vj-secondary-dark transition-colors duration-300",
+                    "text-neutral-800 transition-colors duration-300 dark:text-neutral-200",
                   )}
                 >
                   {avatar.name}
