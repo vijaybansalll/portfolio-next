@@ -16,7 +16,11 @@ import {
 } from "../icons";
 import { Block } from "../block";
 import SharpBox from "../sharpBox";
-
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 // Define the structure for our logo objects
 interface Logo {
   name: string;
@@ -118,9 +122,17 @@ const LogoColumn: React.FC<LogoColumnProps> = React.memo(
               },
             }}
           >
-            {React.createElement(logos[currentIndex % logos.length].img, {
-              className: "h-full w-full object-contain",
-            })}
+            <Tooltip>
+              <TooltipTrigger asChild>
+                {React.createElement(logos[currentIndex % logos.length].img, {
+                  className: "h-full w-full object-contain",
+                })}
+              </TooltipTrigger>
+
+              <TooltipContent className="z-50">
+                <p>{logos[currentIndex % logos.length].name}</p>
+              </TooltipContent>
+            </Tooltip>
           </motion.div>
         </AnimatePresence>
       </motion.div>
