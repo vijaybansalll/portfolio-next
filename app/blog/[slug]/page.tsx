@@ -7,6 +7,7 @@ import { Para } from "@/components/para";
 import VoiceMessageBubble from "@/components/voice-message-bubble";
 // import BlogSummary from "@/components/blogSummary";
 import { BlogTag } from "@/components/blogTag";
+import BlogSummary from "@/components/blogSummary";
 
 export default async function BlogPost({
   params,
@@ -44,7 +45,7 @@ export default async function BlogPost({
           ))}
         </div>
         <VoiceMessageBubble text={stripHtml(post.content || "")} />
-        {/* <BlogSummary content={stripHtml(post.content || "")} /> */}
+        <BlogSummary content={stripHtml(post.content || "")} />
         <div
           className={cn(
             "text-vj-secondary dark:text-vj-secondary-dark text-sm",

@@ -15,7 +15,7 @@ import {
   TailwindCSSFull,
 } from "../icons";
 import { Block } from "../block";
-import { DecorIcon } from "./cta";
+import SharpBox from "../sharpBox";
 
 // Define the structure for our logo objects
 interface Logo {
@@ -165,16 +165,7 @@ function LogoCarousel({ columnCount = 5 }: { columnCount?: number }) {
 
   return (
     <Block>
-      <div className="dark:bg-[radial-gradient(35%_80%_at_25%_0%,--theme(--color-foreground/.08),transparent)] relative my-8 flex items-center justify-between space-x-2 border-y bg-neutral-50 px-4 py-8 md:space-x-4 dark:bg-transparent">
-        <DecorIcon className="m-0 size-4" position="top-left" />
-        <DecorIcon className="m-0 size-4" position="top-right" />
-        <DecorIcon className="m-0 size-4" position="bottom-left" />
-        <DecorIcon className="m-0 size-4" position="bottom-right" />
-
-        <div className="pointer-events-none absolute -inset-y-6 -left-px m-0 w-px border-l" />
-        <div className="pointer-events-none absolute -inset-y-6 -right-px m-0 w-px border-r" />
-
-        <div className="absolute top-0 left-1/2 -z-10 h-full border-l border-dashed" />
+      <SharpBox>
         {logoSets.map((logos, index) => (
           <LogoColumn
             key={index}
@@ -183,7 +174,7 @@ function LogoCarousel({ columnCount = 5 }: { columnCount?: number }) {
             currentTime={currentTime}
           />
         ))}
-      </div>
+      </SharpBox>
     </Block>
   );
 }
