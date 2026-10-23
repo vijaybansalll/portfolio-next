@@ -18,7 +18,7 @@ export const PROJECTS_DATA = [
     websiteURL: "https://xchangeon.io/",
     title: "Xchangeon",
     discription:
-      "I contributed modern, high-quality frontend components to this website using Next.js, enhancing its scalability, and user experience. ",
+      "Developed responsive UI components and refined interface layouts, focusing on visual consistency, intuitive interactions, and a seamless user experience.",
     techStack: [
       {
         icon: <React />,
@@ -47,7 +47,7 @@ export const PROJECTS_DATA = [
     websiteURL: "https://wallet.gtifyprotocol.io/",
     title: "Gtify Protocol",
     discription:
-      "Developed a modern wallet platform powered by a cutting-edge tech stack.",
+      "Worked on the platform's UI/UX, creating clean, responsive interfaces with intuitive layouts and interactive elements to enhance usability.",
     techStack: [
       {
         icon: <Nextjs />,
@@ -76,7 +76,7 @@ export const PROJECTS_DATA = [
     websiteURL: "https://xauras.io/",
     title: "Xausas",
     discription:
-      "Created the Xauras admin panel with refined microinteractions and a seamless, user-focused experience.",
+      "Enhanced the admin panel's UI/UX through interactive components, refined layouts, and subtle micro-interactions for a more intuitive user experience.",
     techStack: [
       {
         icon: <CSS />,
@@ -101,7 +101,7 @@ export const PROJECTS_DATA = [
     websiteURL: "https://vijaybansal2004.github.io/Everest-Remit/",
     title: "Everest Remit",
     discription:
-      "Built a modern-looking remittance website with strong attention to detail and polished user experience.",
+      "Crafted responsive interface elements with attention to visual hierarchy, consistent styling, and user-friendly navigation.",
     techStack: [
       {
         icon: <HTML5 />,
@@ -127,7 +127,7 @@ export const PROJECTS_DATA = [
     websiteURL: "https://finsaix.com/",
     title: "FinsaiX",
     discription:
-      "Contributed to this trading platform by building unique, user-focused UI components that enhance usability and engagement.",
+      "Helped shape the trading platform's UI/UX by building user-focused components, refining visual consistency, and improving interactive elements.",
     techStack: [
       {
         icon: <CSS />,
@@ -156,7 +156,7 @@ export const PROJECTS_DATA = [
     websiteURL: "https://vijaybansal2004.github.io/bitnetX",
     title: "BitnetX",
     discription:
-      "Contributed key UI components with strong attention to detail and user experience.",
+      "Implemented responsive UI components and polished visual elements to maintain a consistent design and deliver a smooth browsing experience.",
 
     techStack: [
       {
