@@ -1,4 +1,6 @@
+"use client";
 import { Block } from "@/components/block";
+import { usePathname } from "next/navigation";
 import { Heading } from "@/components/heading";
 import { Para } from "@/components/para";
 import { LayoutTextFlip } from "@/components/ui/layout-text-flip";
@@ -11,8 +13,13 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import Link from "next/link";
+import { NativeMagnetic } from "@/components/ui/native-magnetic-shadcnui";
+import { Button } from "@/components/ui/button";
+import { ArrowRightIcon } from "lucide-react";
+import { HiDownload } from "react-icons/hi";
 
 const HomeHeroSection = () => {
+  const pathname = usePathname();
   const LINKS: LinksProps[] = [
     {
       link: "https://x.com/vijaybansalll",
@@ -71,10 +78,28 @@ const HomeHeroSection = () => {
             />
           </div>
           <Para className="max-w-lg pt-4 text-center text-sm text-black/80 md:text-left md:text-base dark:text-white/80">
-            I&apos;m a front-end developer with an eye for design. I&apos;m
-            passionate about building beautiful, user-friendly interfaces that
-            are both functional and aesthetically pleasing.
+            {pathname === "/about"
+              ? "A Frontend Developer specializing in React and Next.js. I build modern, high-performance web applications with a strong focus on clean UI, performance, and seamless user experiences. I enjoy transforming complex problems into intuitive digital solutions."
+              : "I'm a front-end developer with an eye for design. I'm passionate about building beautiful, user-friendly interfaces that are both functional and aesthetically pleasing."}
           </Para>
+
+          <div className="mt-6 flex items-center justify-center gap-2 sm:flex-row md:items-start md:justify-start">
+            <Link href={"/contact"} className="flex items-center gap-2">
+              <NativeMagnetic className="w-full sm:w-fit">
+                <Button className="w-full">
+                  Start a Conversation <ArrowRightIcon data-icon="inline-end" />
+                </Button>
+              </NativeMagnetic>
+            </Link>
+            <NativeMagnetic className="w-full sm:w-fit">
+              <Link href={"/vijay-bansal-resume.pdf"} download={true}>
+                <Button variant={"outline"} className="w-full">
+                  Download CV
+                  <HiDownload />
+                </Button>
+              </Link>
+            </NativeMagnetic>
+          </div>
         </div>
       </div>
     </Block>
