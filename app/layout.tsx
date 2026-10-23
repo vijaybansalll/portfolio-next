@@ -17,6 +17,8 @@ export const metadata: Metadata = {
 
 const inter = Inter({ subsets: ["latin"] });
 
+const GRADIENT_COLORS = ["#1e3fd8", "#f6f8ff", "#a5d8ff", "#38bdf8"];
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -35,7 +37,7 @@ export default function RootLayout({
                 className="relative h-70 w-full md:h-90"
               >
                 <GradientASCII
-                  colors={["#1e3fd8", "#f6f8ff", "#a5d8ff", "#38bdf8"]}
+                  colors={GRADIENT_COLORS}
                   shape="horizon"
                   characters=" =+xX0S8#@"
                   cellSize={20}

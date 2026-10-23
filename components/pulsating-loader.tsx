@@ -2,9 +2,14 @@
 
 import { motion } from "framer-motion";
 
-export function RippleWaveLoader() {
+export function RippleWaveLoader({ className }: { className?: string } = {}) {
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center space-x-1 bg-white/80 dark:bg-black/80">
+    <div
+      className={
+        className ??
+        "flex min-h-[300px] w-full items-center justify-center space-x-1 py-16"
+      }
+    >
       {[...Array(7)].map((_, index) => (
         <motion.div
           key={index}

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, memo } from 'react';
 import "./GradientASCII.css";
 
 const MAX_COLORS = 8;
@@ -902,4 +902,4 @@ const GradientASCII = ({
   );
 };
 
-export default GradientASCII;
+export default memo(GradientASCII);
