@@ -60,7 +60,7 @@ export function CallToAction() {
   );
 }
 
-const DecorIconVariants = cva(
+export const DecorIconVariants = cva(
   "pointer-events-none absolute z-1 size-5 shrink-0 stroke-1 stroke-muted-foreground",
   {
     variants: {
