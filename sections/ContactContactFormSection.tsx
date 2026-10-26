@@ -79,25 +79,24 @@ const ContactContactFormSection = () => {
                 : ""
             }
           />
-          {/* {errors.name && <ErrorText>{errors.name.message}</ErrorText>} */}
 
-          <div className="absolute right-2 bottom-3">
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <CircleAlert
-                  className={cn(
-                    "size-4 text-neutral-600",
-                    errors.name && "cursor-help text-red-500",
-                  )}
-                />
-              </TooltipTrigger>
-              {errors.name && (
+          {errors.name && (
+            <div className="absolute right-2 bottom-3">
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <CircleAlert
+                    className={cn(
+                      "size-4 text-neutral-600",
+                      errors.name && "cursor-help text-red-500",
+                    )}
+                  />
+                </TooltipTrigger>
                 <TooltipContent className="z-50">
-                  {errors.name && <ErrorText>{errors.name.message}</ErrorText>}
+                  <ErrorText>{errors.name.message}</ErrorText>
                 </TooltipContent>
-              )}
-            </Tooltip>
-          </div>
+              </Tooltip>
+            </div>
+          )}
         </InputContainer>
 
         {/* Email */}
@@ -120,27 +119,24 @@ const ContactContactFormSection = () => {
                 : ""
             }
           />
-          {/* {errors.email && <ErrorText>{errors.email.message}</ErrorText>} */}
 
-          <div className="absolute right-2 bottom-3">
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <CircleAlert
-                  className={cn(
-                    "size-4 text-neutral-600",
-                    errors.email && "cursor-help text-red-500",
-                  )}
-                />
-              </TooltipTrigger>
-              {errors.email && (
+          {errors.email && (
+            <div className="absolute right-2 bottom-3">
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <CircleAlert
+                    className={cn(
+                      "size-4 text-neutral-600",
+                      errors.email && "cursor-help text-red-500",
+                    )}
+                  />
+                </TooltipTrigger>
                 <TooltipContent className="z-50">
-                  {errors.email && (
-                    <ErrorText>{errors.email.message}</ErrorText>
-                  )}
+                  <ErrorText>{errors.email.message}</ErrorText>
                 </TooltipContent>
-              )}
-            </Tooltip>
-          </div>
+              </Tooltip>
+            </div>
+          )}
         </InputContainer>
 
         {/* Message */}
@@ -163,25 +159,23 @@ const ContactContactFormSection = () => {
             }
           />
 
-          <div className="absolute right-2 bottom-2">
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <CircleAlert
-                  className={cn(
-                    "size-4 text-neutral-600",
-                    errors.message && "cursor-help text-red-500",
-                  )}
-                />
-              </TooltipTrigger>
-              {errors.message && (
+          {errors.message && (
+            <div className="absolute right-2 bottom-2">
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <CircleAlert
+                    className={cn(
+                      "size-4 text-neutral-600",
+                      errors.message && "cursor-help text-red-500",
+                    )}
+                  />
+                </TooltipTrigger>
                 <TooltipContent className="z-50">
-                  {errors.message && (
-                    <ErrorText>{errors.message.message}</ErrorText>
-                  )}
+                  <ErrorText>{errors.message.message}</ErrorText>
                 </TooltipContent>
-              )}
-            </Tooltip>
-          </div>
+              </Tooltip>
+            </div>
+          )}
         </InputContainer>
 
         {/* Submit Button */}
@@ -244,7 +238,7 @@ export const Input = ({
     <input
       {...rest}
       className={cn(
-        "text-vj-primary dark:text-vj-primary-dark rounded-md border border-neutral-200 px-3 py-2 text-sm shadow-sm focus:ring-2 focus:ring-neutral-400 focus:outline-none dark:border-neutral-600 dark:focus:ring-neutral-600",
+        "text-vj-primary dark:text-vj-primary-dark rounded-md border border-neutral-200 px-3 py-2 text-sm shadow-sm focus:ring-2 focus:ring-neutral-400 focus:outline-none dark:border-neutral-700 dark:bg-neutral-900 dark:focus:ring-neutral-600",
         className,
       )}
     />
@@ -262,7 +256,7 @@ export const Textarea = ({
       {...rest}
       rows={4}
       className={cn(
-        "text-vj-primary dark:text-vj-primary-dark resize-none rounded-md border border-neutral-200 px-3 py-2 text-sm shadow-sm focus:ring-2 focus:ring-neutral-400 focus:outline-none dark:border-neutral-600 dark:focus:ring-neutral-600",
+        "text-vj-primary dark:text-vj-primary-dark resize-none rounded-md border border-neutral-200 px-3 py-2 text-sm shadow-sm focus:ring-2 focus:ring-neutral-400 focus:outline-none dark:border-neutral-700 dark:bg-neutral-900 dark:focus:ring-neutral-600",
         className,
       )}
     />

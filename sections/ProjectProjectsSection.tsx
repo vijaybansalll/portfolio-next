@@ -15,6 +15,7 @@ const ProjectProjectsSection = () => {
             websiteURL={item.websiteURL}
             img={item.imagePath}
             title={item.title}
+            domain={item.domain}
             description={item.discription}
             techStack={item.techStack}
           />

@@ -13,6 +13,7 @@ interface ProjectCardProps {
   websiteURL: string;
   img: string;
   title: string;
+  domain?: string;
   description: React.ReactNode;
   techStack: { icon: React.ReactNode; name: string }[];
 }
@@ -21,6 +22,7 @@ export const ProjectCard = ({
   index,
   img,
   title,
+  domain,
   // websiteURL,
   description,
   techStack,
@@ -69,9 +71,11 @@ export const ProjectCard = ({
                 />
               </div>
               <div className="space-y-3">
-                <h3 className="text-vj-primary dark:text-vj-primary-dark text-base leading-5 font-medium tracking-tight">
-                  {title}
-                </h3>
+                <div className="flex items-center justify-between gap-2">
+                  <h3 className="text-vj-primary dark:text-vj-primary-dark text-base leading-5 font-medium tracking-tight">
+                    {domain} Platform
+                  </h3>
+                </div>
                 <Para className="w-11/12 tracking-tight sm:w-full md:w-56">
                   {description}
                 </Para>

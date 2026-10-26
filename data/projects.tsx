@@ -12,13 +12,26 @@ import {
   TypeScript,
 } from "@/components/icons";
 
-export const PROJECTS_DATA = [
+export interface ProjectItem {
+  imagePath: string;
+  websiteURL: string;
+  title: string;
+  domain: string;
+  discription: string;
+  techStack: {
+    icon: React.ReactNode;
+    name: string;
+  }[];
+}
+
+export const PROJECTS_DATA: ProjectItem[] = [
   {
     imagePath: "/projects/xchangeOn-full.webp",
     websiteURL: "https://xchangeon.io/",
     title: "Xchangeon",
+    domain: "Crypto Exchange",
     discription:
-      "Developed responsive UI components and refined interface layouts, focusing on visual consistency, intuitive interactions, and a seamless user experience.",
+      "Responsive UI components and interface layouts for seamless interactions.",
     techStack: [
       {
         icon: <React />,
@@ -46,8 +59,9 @@ export const PROJECTS_DATA = [
     imagePath: "/projects/gtify-protocol-full.webp",
     websiteURL: "https://wallet.gtifyprotocol.io/",
     title: "Gtify Protocol",
+    domain: "Web3 / DeFi",
     discription:
-      "Worked on the platform's UI/UX, creating clean, responsive interfaces with intuitive layouts and interactive elements to enhance usability.",
+      "Clean, responsive interfaces and intuitive layouts for enhanced usability.",
     techStack: [
       {
         icon: <Nextjs />,
@@ -71,12 +85,41 @@ export const PROJECTS_DATA = [
       },
     ],
   },
+
+  {
+    imagePath: "/projects/everest-remit-full.webp",
+    websiteURL: "https://vijaybansal2004.github.io/Everest-Remit/",
+    title: "Everest Remit",
+    domain: "Remittance",
+    discription:
+      "Responsive interface elements with clear visual hierarchy and navigation.",
+    techStack: [
+      {
+        icon: <HTML5 />,
+        name: "HTML5",
+      },
+      {
+        icon: <CSS />,
+        name: "CSS",
+      },
+      {
+        icon: <JavaScript />,
+        name: "JavaScript",
+      },
+
+      {
+        icon: <Bootstrap />,
+        name: "Bootstrap",
+      },
+    ],
+  },
   {
     imagePath: "/projects/xauras-full.webp",
     websiteURL: "https://xauras.io/",
     title: "Xausas",
+    domain: "DeFi",
     discription:
-      "Enhanced the admin panel's UI/UX through interactive components, refined layouts, and subtle micro-interactions for a more intuitive user experience.",
+      "Interactive admin panel components with smooth and intuitive micro-interactions.",
     techStack: [
       {
         icon: <CSS />,
@@ -97,11 +140,13 @@ export const PROJECTS_DATA = [
     ],
   },
   {
-    imagePath: "/projects/everest-remit-full.webp",
-    websiteURL: "https://vijaybansal2004.github.io/Everest-Remit/",
-    title: "Everest Remit",
+    imagePath: "/projects/bitnetx-full.webp",
+    websiteURL: "https://vijaybansal2004.github.io/bitnetX",
+    title: "BitnetX",
+    domain: "Crypto Exchange",
     discription:
-      "Crafted responsive interface elements with attention to visual hierarchy, consistent styling, and user-friendly navigation.",
+      "Polished responsive components delivering a smooth, consistent browsing experience.",
+
     techStack: [
       {
         icon: <HTML5 />,
@@ -115,7 +160,6 @@ export const PROJECTS_DATA = [
         icon: <JavaScript />,
         name: "JavaScript",
       },
-
       {
         icon: <Bootstrap />,
         name: "Bootstrap",
@@ -126,8 +170,9 @@ export const PROJECTS_DATA = [
     imagePath: "/projects/finsaix-full.webp",
     websiteURL: "https://finsaix.com/",
     title: "FinsaiX",
+    domain: "Trading",
     discription:
-      "Helped shape the trading platform's UI/UX by building user-focused components, refining visual consistency, and improving interactive elements.",
+      "Modern trading platform UI components with refined visual consistency.",
     techStack: [
       {
         icon: <CSS />,
@@ -148,32 +193,6 @@ export const PROJECTS_DATA = [
       {
         icon: <React />,
         name: "React",
-      },
-    ],
-  },
-  {
-    imagePath: "/projects/bitnetx-full.webp",
-    websiteURL: "https://vijaybansal2004.github.io/bitnetX",
-    title: "BitnetX",
-    discription:
-      "Implemented responsive UI components and polished visual elements to maintain a consistent design and deliver a smooth browsing experience.",
-
-    techStack: [
-      {
-        icon: <HTML5 />,
-        name: "HTML5",
-      },
-      {
-        icon: <CSS />,
-        name: "CSS",
-      },
-      {
-        icon: <JavaScript />,
-        name: "JavaScript",
-      },
-      {
-        icon: <Bootstrap />,
-        name: "Bootstrap",
       },
     ],
   },
