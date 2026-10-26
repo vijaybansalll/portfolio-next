@@ -37,35 +37,35 @@ export default function FloatingDockDemo() {
     {
       title: "Home",
       icon: (
-        <IconHome className="h-full w-full text-neutral-600 dark:text-neutral-300" />
+        <IconHome className="h-full w-full text-neutral-900 dark:text-neutral-100" />
       ),
       href: "/",
     },
     {
       title: "Projects",
       icon: (
-        <IconBriefcase className="h-full w-full text-neutral-600 dark:text-neutral-300" />
+        <IconBriefcase className="h-full w-full text-neutral-900 dark:text-neutral-100" />
       ),
       href: "/projects",
     },
     {
       title: "About",
       icon: (
-        <IconUser className="h-full w-full text-neutral-600 dark:text-neutral-300" />
+        <IconUser className="h-full w-full text-neutral-900 dark:text-neutral-100" />
       ),
       href: "/about",
     },
     {
       title: "Blogs",
       icon: (
-        <IconArticle className="h-full w-full text-neutral-600 dark:text-neutral-300" />
+        <IconArticle className="h-full w-full text-neutral-900 dark:text-neutral-100" />
       ),
       href: "/blog",
     },
     {
       title: "Contact",
       icon: (
-        <IconMail className="h-full w-full text-neutral-600 dark:text-neutral-300" />
+        <IconMail className="h-full w-full text-neutral-900 dark:text-neutral-100" />
       ),
       href: "/contact",
     },
@@ -80,7 +80,7 @@ export default function FloatingDockDemo() {
       icon: (
         <AnimatedThemeToggler
           className="flex h-full w-full cursor-pointer items-center justify-center rounded-full border-none p-0 text-inherit hover:bg-transparent focus:outline-none dark:hover:bg-transparent"
-          iconClassName="h-full w-full text-neutral-600 dark:text-neutral-300"
+          iconClassName="h-full w-full text-neutral-900 dark:text-neutral-100"
         />
       ),
     },
