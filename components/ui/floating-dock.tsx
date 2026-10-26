@@ -61,7 +61,7 @@ const FloatingDockDesktop = ({
       onMouseMove={isMobile ? undefined : (e) => mouseX.set(e.clientX)}
       onMouseLeave={isMobile ? undefined : () => mouseX.set(Infinity)}
       className={cn(
-        "mx-auto flex h-16 items-end gap-2 rounded-2xl border border-neutral-200/80 bg-neutral-100/90 px-2.5 pb-3 shadow-2xl backdrop-blur-md md:gap-3 md:px-3.5 dark:border-neutral-800/80 dark:bg-neutral-900/90",
+        "mx-auto flex h-16 items-end gap-2 rounded-2xl border border-neutral-200/80 bg-neutral-100/90 px-2.5 pb-3 shadow-2xl backdrop-blur-md md:gap-3 md:px-3.5 dark:border-neutral-950/90 dark:bg-neutral-800/90",
         className,
       )}
     >
@@ -72,7 +72,7 @@ const FloatingDockDesktop = ({
               key={`separator-${idx}`}
               role="separator"
               aria-orientation="vertical"
-              className="mx-0.5 mb-2 h-8 w-[1px] shrink-0 self-end bg-neutral-300 dark:bg-neutral-700"
+              className="mx-0.5 mb-2 h-8 w-px shrink-0 self-end bg-neutral-300 dark:bg-neutral-700"
             />
           );
         }
@@ -118,7 +118,11 @@ function IconContainer({
   const widthTransform = useTransform(distance, [-150, 0, 150], [40, 76, 40]);
   const heightTransform = useTransform(distance, [-150, 0, 150], [40, 76, 40]);
 
-  const widthTransformIcon = useTransform(distance, [-150, 0, 150], [20, 38, 20]);
+  const widthTransformIcon = useTransform(
+    distance,
+    [-150, 0, 150],
+    [20, 38, 20],
+  );
   const heightTransformIcon = useTransform(
     distance,
     [-150, 0, 150],
@@ -173,7 +177,7 @@ function IconContainer({
       onMouseLeave={() => !isMobile && setHovered(false)}
       aria-label={!href ? title : undefined}
       className={cn(
-        "relative flex aspect-square items-center justify-center rounded-full border border-neutral-300/50 bg-neutral-200/80 text-neutral-600 transition-colors cursor-pointer dark:border-neutral-700/50 dark:bg-neutral-800/80 dark:text-neutral-300",
+        "relative flex aspect-square cursor-pointer items-center justify-center rounded-full border border-neutral-300/50 bg-neutral-200/80 text-neutral-600 transition-colors dark:border-neutral-700/90 dark:bg-neutral-700/50 dark:text-neutral-300",
         !isMobile && "hover:text-black dark:hover:text-white",
       )}
     >
@@ -183,7 +187,7 @@ function IconContainer({
             initial={{ opacity: 0, y: 10, x: "-50%" }}
             animate={{ opacity: 1, y: 0, x: "-50%" }}
             exit={{ opacity: 0, y: 2, x: "-50%" }}
-            className="pointer-events-none absolute -top-8 left-1/2 w-fit rounded-md border border-neutral-200 bg-white/95 px-2 py-0.5 text-xs font-medium whitespace-pre text-neutral-800 shadow-md backdrop-blur-sm dark:border-neutral-800 dark:bg-neutral-900/95 dark:text-white"
+            className="bg-foreground text-background pointer-events-none absolute -top-8 left-1/2 w-fit rounded-md px-3 py-1.5 text-xs font-medium text-balance whitespace-pre"
           >
             {title}
           </motion.div>
