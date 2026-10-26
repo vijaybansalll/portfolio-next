@@ -27,7 +27,7 @@ export const Testimonials = (props: {
             <React.Fragment key={index}>
               {props.testimonials.map(({ text, name, role }, i) => (
                 <div
-                  className="w-full max-w-xs rounded-lg border px-2 py-4 shadow-sm shadow-black/10 drop-shadow-lg md:rounded-xl dark:bg-neutral-900 dark:shadow-sm dark:shadow-white/10"
+                  className="w-full max-w-xs rounded-lg border px-2 py-4 shadow-sm shadow-black/10 drop-shadow-lg md:rounded-xl dark:bg-neutral-950 dark:shadow-sm dark:shadow-white/10"
                   key={i}
                 >
                   <div className="text-vj-secondary dark:text-vj-secondary-dark text-sm leading-normal font-normal">

@@ -26,12 +26,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body
-        className={`${inter.className} bg-neutral-100 antialiased dark:bg-neutral-950`}
-      >
+      <body className={`${inter.className} bg-white antialiased dark:bg-black`}>
         <ThemeProvider attribute="class" defaultTheme="system">
           <TooltipProvider>
-            <div className="relative mx-auto h-full min-h-screen w-full bg-white dark:bg-neutral-900">
+            <div className="relative mx-auto h-full min-h-screen w-full">
               <div
                 // style={{ width: "100%", height: "400px", position: "relative" }}
                 className="relative h-70 w-full md:h-90"

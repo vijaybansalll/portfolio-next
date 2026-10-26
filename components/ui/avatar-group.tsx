@@ -63,7 +63,7 @@ const AvatarGroup = ({ className, avatarUrls }: AvatarGroupProps) => {
               "relative flex touch-none items-center justify-center gap-0 rounded-full",
               "transition-all duration-500 ease-out",
               "hover:z-10",
-              "border border-neutral-200 bg-neutral-100 p-0.5 dark:border-neutral-700 dark:bg-neutral-800",
+              "border border-neutral-200 bg-neutral-100 p-0.5 dark:border-neutral-800 dark:bg-neutral-900",
               showName ? "pr-2" : "",
             )}
           >

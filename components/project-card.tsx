@@ -38,18 +38,24 @@ export const ProjectCard = ({
           duration: 0.3,
         }}
       >
-        <div className="group relative h-full rounded-lg border border-transparent transition-all duration-200 hover:border-inherit md:rounded-xl md:p-0">
-          <GlowingEffect
-            blur={0}
-            borderWidth={2}
-            spread={80}
-            glow={true}
-            disabled={false}
-            proximity={64}
-            inactiveZone={0.01}
+        <div
+          className={cn(
+            "group relative h-full overflow-hidden rounded-xl border border-neutral-100 p-2 dark:border-neutral-900",
+            "after:absolute after:inset-0 after:z-1 after:h-full after:w-full after:bg-[linear-gradient(0deg,#fff_40%,transparent)] dark:after:bg-[linear-gradient(0deg,#000_40%,transparent)]",
+          )}
+        >
+          <Image
+            src={img}
+            alt={title}
+            width={500}
+            height={300}
+            className={cn(
+              "pointer-events-none absolute top-0 right-0 left-0 size-full scale-125 object-cover opacity-100 blur-[100px] brightness-600 saturate-150",
+            )}
           />
+
           <div className="relative flex h-full flex-col gap-6 overflow-hidden rounded-md">
-            <div className="relative flex flex-col gap-3">
+            <div className="relative z-2 flex flex-col gap-3">
               <div className="h-full max-h-37.5 w-full overflow-hidden rounded-lg">
                 <Image
                   src={img}
@@ -62,7 +68,7 @@ export const ProjectCard = ({
                   )}
                 />
               </div>
-              <div className="space-y-3 pb-3 transition-all duration-300 ease-in-out group-hover:px-3">
+              <div className="space-y-3">
                 <h3 className="text-vj-primary dark:text-vj-primary-dark text-base leading-5 font-medium tracking-tight">
                   {title}
                 </h3>
