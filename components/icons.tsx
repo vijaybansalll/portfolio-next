@@ -242,6 +242,7 @@ export const GitHub = (props: SVGProps<SVGSVGElement>) => (
     viewBox="0 0 1024 1024"
     xmlns="http://www.w3.org/2000/svg"
     fill="none"
+    className="tabler-icon tabler-icon-brand-linkedin size-4 text-neutral-800 hover:text-neutral-900 dark:text-neutral-200 dark:hover:text-neutral-100"
   >
     <path
       fill="currentColor"
@@ -276,7 +277,7 @@ export const LinkedIn = (props: SVGProps<SVGSVGElement>) => (
     strokeWidth="2"
     strokeLinecap="round"
     strokeLinejoin="round"
-    className="tabler-icon tabler-icon-brand-linkedin size-4 text-neutral-500 hover:text-neutral-700 dark:text-neutral-400 dark:hover:text-neutral-200"
+    className="tabler-icon tabler-icon-brand-linkedin size-4 text-neutral-800 hover:text-neutral-900 dark:text-neutral-200 dark:hover:text-neutral-100"
   >
     <path d="M8 11v5"></path>
     <path d="M8 8v.01"></path>
@@ -296,7 +297,7 @@ export const X = (props: SVGProps<SVGSVGElement>) => (
     strokeWidth="2"
     strokeLinecap="round"
     strokeLinejoin="round"
-    className="tabler-icon tabler-icon-brand-x size-4 text-neutral-500 hover:text-neutral-700 dark:text-neutral-400 dark:hover:text-neutral-200"
+    className="tabler-icon tabler-icon-brand-x size-4 text-neutral-800 hover:text-neutral-900 dark:text-neutral-200 dark:hover:text-neutral-100"
   >
     <path d="M4 4l11.733 16h4.267l-11.733 -16z"></path>
     <path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772"></path>

@@ -5,6 +5,7 @@ import Link from "next/link";
 import { motion } from "motion/react";
 import { Block } from "../block";
 import SharpBox from "../sharpBox";
+import { ArrowRight02 } from "../animate-ui/icons/hugeicons/arrow-right-02";
 
 export function CallToAction() {
   return (
@@ -39,7 +40,8 @@ export function CallToAction() {
           >
             <Button>
               <Link href="/contact" className="flex items-center gap-2">
-                Start a Conversation <ArrowRightIcon data-icon="inline-end" />
+                Start a Conversation{" "}
+                <ArrowRight02 animateOnHover data-icon="inline-end" />
               </Link>
             </Button>
           </motion.div>

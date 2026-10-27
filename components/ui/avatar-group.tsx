@@ -2,21 +2,30 @@
 import { useState, useEffect, useRef } from "react";
 import { cn } from "@/lib/utils";
 
-interface Avatar {
+export interface Avatar {
   icon: React.ReactNode;
   name: string;
 }
 
-interface AvatarGroupProps {
+export interface AvatarGroupProps {
   className?: string;
   avatarUrls: Avatar[];
+  showNameOnHover?: boolean;
+  bare?: boolean;
 }
 
-const AvatarGroup = ({ className, avatarUrls }: AvatarGroupProps) => {
+const AvatarGroup = ({
+  className,
+  avatarUrls,
+  showNameOnHover = true,
+  bare = false,
+}: AvatarGroupProps) => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    if (!showNameOnHover || bare) return;
+
     const handleClickOutside = (event: MouseEvent | TouchEvent) => {
       if (
         containerRef.current &&
@@ -33,15 +42,38 @@ const AvatarGroup = ({ className, avatarUrls }: AvatarGroupProps) => {
       document.removeEventListener("mousedown", handleClickOutside);
       document.removeEventListener("touchstart", handleClickOutside);
     };
-  }, []);
+  }, [showNameOnHover, bare]);
 
   const handleInteraction = (
     index: number,
     e: React.MouseEvent | React.TouchEvent,
   ) => {
+    if (!showNameOnHover || bare) return;
     e.preventDefault();
     setHoveredIndex(hoveredIndex === index ? null : index);
   };
+
+  if (bare) {
+    return (
+      <div
+        ref={containerRef}
+        className={cn(
+          "inline-flex items-center -space-x-1.5 rtl:space-x-reverse",
+          className,
+        )}
+      >
+        {avatarUrls.map((avatar, index) => (
+          <span
+            key={index}
+            title={avatar.name}
+            className="relative inline-flex shrink-0 items-center justify-center transition-transform duration-200 hover:z-20 hover:scale-115"
+          >
+            {avatar.icon}
+          </span>
+        ))}
+      </div>
+    );
+  }
 
   return (
     <div
@@ -49,14 +81,18 @@ const AvatarGroup = ({ className, avatarUrls }: AvatarGroupProps) => {
       className={cn("z-10 flex -space-x-2 rtl:space-x-reverse", className)}
     >
       {avatarUrls.map((avatar, index) => {
-        const isHovered = hoveredIndex === index;
+        const isHovered = showNameOnHover && hoveredIndex === index;
         const showName = isHovered;
 
         return (
           <div
             key={index}
-            onMouseEnter={() => setHoveredIndex(index)}
-            onMouseLeave={() => setHoveredIndex(null)}
+            onMouseEnter={() => {
+              if (showNameOnHover) setHoveredIndex(index);
+            }}
+            onMouseLeave={() => {
+              if (showNameOnHover) setHoveredIndex(null);
+            }}
             onTouchEnd={(e) => handleInteraction(index, e)}
             onClick={(e) => handleInteraction(index, e)}
             className={cn(
@@ -77,25 +113,27 @@ const AvatarGroup = ({ className, avatarUrls }: AvatarGroupProps) => {
               {avatar.icon}
             </div>
 
-            <div
-              className={cn(
-                "grid transition-all duration-500 ease-out",
-                showName
-                  ? "ml-1 grid-cols-[1fr] opacity-100"
-                  : "ml-0 grid-cols-[0fr] opacity-0",
-              )}
-            >
-              <div className="overflow-hidden">
-                <span
-                  className={cn(
-                    "block text-xs whitespace-nowrap",
-                    "text-neutral-800 transition-colors duration-300 dark:text-neutral-200",
-                  )}
-                >
-                  {avatar.name}
-                </span>
+            {showNameOnHover && (
+              <div
+                className={cn(
+                  "grid transition-all duration-500 ease-out",
+                  showName
+                    ? "ml-1 grid-cols-[1fr] opacity-100"
+                    : "ml-0 grid-cols-[0fr] opacity-0",
+                )}
+              >
+                <div className="overflow-hidden">
+                  <span
+                    className={cn(
+                      "block text-xs whitespace-nowrap",
+                      "text-neutral-800 transition-colors duration-300 dark:text-neutral-200",
+                    )}
+                  >
+                    {avatar.name}
+                  </span>
+                </div>
               </div>
-            </div>
+            )}
           </div>
         );
       })}

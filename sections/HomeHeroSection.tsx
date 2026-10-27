@@ -14,10 +14,9 @@ import Link from "next/link";
 import { NativeMagnetic } from "@/components/ui/native-magnetic-shadcnui";
 import { Button } from "@/components/ui/button";
 import { ArrowRightIcon } from "lucide-react";
-import { HiDownload } from "react-icons/hi";
 import AboutDescription from "@/components/aboutDescription";
 import { Download01 } from "@/components/animate-ui/icons/hugeicons/download-01";
-import { AvatarGroup } from "@/components/ui/avatar-group";
+import { ArrowRight02 } from "@/components/animate-ui/icons/hugeicons/arrow-right-02";
 
 const HomeHeroSection = () => {
   const LINKS: LinksProps[] = [
@@ -85,7 +84,8 @@ const HomeHeroSection = () => {
             <Link href={"/contact"} className="flex items-center gap-2">
               <NativeMagnetic className="w-full sm:w-fit">
                 <Button className="w-full">
-                  Start a Conversation <ArrowRightIcon data-icon="inline-end" />
+                  Start a Conversation{" "}
+                  <ArrowRight02 animateOnHover data-icon="inline-end" />
                 </Button>
               </NativeMagnetic>
             </Link>
