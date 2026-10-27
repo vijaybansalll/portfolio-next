@@ -1,5 +1,4 @@
 import { CallToAction } from "@/components/ui/cta";
-import HomeHeroSection from "@/sections/HomeHeroSection";
 import LogoCarousel from "@/components/ui/logo-carousel";
 import HomeBlogSection from "@/sections/HomeBlogSection";
 import HomeProjectsSection from "@/sections/HomeProjectsSection";
