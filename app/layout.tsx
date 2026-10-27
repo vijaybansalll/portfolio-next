@@ -28,7 +28,7 @@ export default function RootLayout({
         <ThemeProvider attribute="class" defaultTheme="system">
           <TooltipProvider>
             <div className="relative mx-auto h-full min-h-screen w-full">
-              <div className="relative h-60 w-full md:h-90">
+              <div className="relative h-80 w-full md:h-90">
                 <Aurora
                   colorStops={["#00ff87", "#00d4ff", "#7b2ff7"]}
                   amplitude={3.0}
