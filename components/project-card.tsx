@@ -1,6 +1,5 @@
 "use client";
 
-import { GlowingEffect } from "@/components/ui/glowing-effect";
 import Image from "next/image";
 import { Para } from "./para";
 import { AvatarGroup } from "./ui/avatar-group";

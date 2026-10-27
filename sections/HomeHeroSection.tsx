@@ -13,7 +13,6 @@ import {
 import Link from "next/link";
 import { NativeMagnetic } from "@/components/ui/native-magnetic-shadcnui";
 import { Button } from "@/components/ui/button";
-import { ArrowRightIcon } from "lucide-react";
 import AboutDescription from "@/components/aboutDescription";
 import { Download01 } from "@/components/animate-ui/icons/hugeicons/download-01";
 import { ArrowRight02 } from "@/components/animate-ui/icons/hugeicons/arrow-right-02";

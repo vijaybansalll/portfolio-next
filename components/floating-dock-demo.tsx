@@ -1,16 +1,8 @@
 "use client";
 
-import { cn } from "@/lib/utils";
 import { useState } from "react";
 import { motion, useMotionValueEvent, useScroll } from "motion/react";
 import { AnimatedThemeToggler } from "@/components/ui/animated-theme-toggler";
-import {
-  IconHome,
-  IconBriefcase,
-  IconUser,
-  IconMail,
-  IconArticle,
-} from "@tabler/icons-react";
 import { FloatingDock, FloatingDockItem } from "@/components/ui/floating-dock";
 import { Home03 } from "./animate-ui/icons/hugeicons/home-03";
 import { MailOpen } from "./animate-ui/icons/hugeicons/mail-open";
@@ -39,7 +31,6 @@ export default function FloatingDockDemo() {
     {
       title: "Home",
       icon: (
-        // <IconHome className="h-full w-full text-neutral-900 dark:text-neutral-100" />
         <Home03
           animateOnHover
           className="h-full w-full text-neutral-900 dark:text-neutral-100"
@@ -50,7 +41,6 @@ export default function FloatingDockDemo() {
     {
       title: "Projects",
       icon: (
-        // <IconBriefcase className="h-full w-full text-neutral-900 dark:text-neutral-100" />
         <Airplay
           animateOnHover
           className="h-full w-full text-neutral-900 dark:text-neutral-100"
@@ -61,7 +51,6 @@ export default function FloatingDockDemo() {
     {
       title: "About",
       icon: (
-        // <IconUser className="h-full w-full text-neutral-900 dark:text-neutral-100" />
         <User
           animateOnHover
           className="h-full w-full text-neutral-900 dark:text-neutral-100"
@@ -82,7 +71,6 @@ export default function FloatingDockDemo() {
     {
       title: "Contact",
       icon: (
-        // <IconMail className="h-full w-full text-neutral-900 dark:text-neutral-100" />
         <MailOpen
           animateOnHover
           className="h-full w-full text-neutral-900 dark:text-neutral-100"
