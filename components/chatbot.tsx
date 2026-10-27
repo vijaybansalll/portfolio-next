@@ -3,7 +3,6 @@
 import { cn } from "@/lib/utils";
 import { useCallback, useState } from "react";
 import { Button } from "@/components/ui/button";
-import { MessageSquare, Send, X } from "lucide-react";
 import { AnimatePresence, motion, type Variants } from "framer-motion";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
@@ -11,6 +10,9 @@ import {
   TooltipContent,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+import { MessageCircleMore } from "./animate-ui/icons/hugeicons/message-circle-more";
+import { X } from "./animate-ui/icons/x";
+import { Sent } from "./animate-ui/icons/hugeicons/sent";
 
 const containerVariants: Variants = {
   hidden: { opacity: 0, y: 20, scale: 0.95 },
@@ -129,7 +131,7 @@ export function Chatbot() {
               <Tooltip>
                 <TooltipTrigger asChild>
                   <Button size="icon" variant="ghost" onClick={toggleOpen}>
-                    <X className="h-4 w-4" />
+                    <X animateOnHover className="h-4 w-4" />
                   </Button>
                 </TooltipTrigger>
 
@@ -208,7 +210,7 @@ export function Chatbot() {
                 <Tooltip>
                   <TooltipTrigger asChild>
                     <Button size="icon" disabled={!input.trim() || loading}>
-                      <Send className="h-4 w-4" />
+                      <Sent animateOnHover className="h-4 w-4" />
                     </Button>
                   </TooltipTrigger>
 
@@ -233,7 +235,11 @@ export function Chatbot() {
               isOpen ? "bg-red-500! text-white!" : "",
             )}
           >
-            {isOpen ? <X /> : <MessageSquare />}
+            {isOpen ? (
+              <X animateOnHover />
+            ) : (
+              <MessageCircleMore animateOnHover />
+            )}
           </motion.button>
         </TooltipTrigger>
 

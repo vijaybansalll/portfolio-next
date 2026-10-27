@@ -12,6 +12,11 @@ import {
   IconArticle,
 } from "@tabler/icons-react";
 import { FloatingDock, FloatingDockItem } from "@/components/ui/floating-dock";
+import { Home03 } from "./animate-ui/icons/hugeicons/home-03";
+import { MailOpen } from "./animate-ui/icons/hugeicons/mail-open";
+import { Airplay } from "./animate-ui/icons/hugeicons/airplay";
+import { User } from "./animate-ui/icons/hugeicons/user";
+import { FileText } from "./animate-ui/icons/file-text";
 
 export default function FloatingDockDemo() {
   const { scrollY } = useScroll();
@@ -34,35 +39,54 @@ export default function FloatingDockDemo() {
     {
       title: "Home",
       icon: (
-        <IconHome className="h-full w-full text-neutral-900 dark:text-neutral-100" />
+        // <IconHome className="h-full w-full text-neutral-900 dark:text-neutral-100" />
+        <Home03
+          animateOnHover
+          className="h-full w-full text-neutral-900 dark:text-neutral-100"
+        />
       ),
       href: "/",
     },
     {
       title: "Projects",
       icon: (
-        <IconBriefcase className="h-full w-full text-neutral-900 dark:text-neutral-100" />
+        // <IconBriefcase className="h-full w-full text-neutral-900 dark:text-neutral-100" />
+        <Airplay
+          animateOnHover
+          className="h-full w-full text-neutral-900 dark:text-neutral-100"
+        />
       ),
       href: "/projects",
     },
     {
       title: "About",
       icon: (
-        <IconUser className="h-full w-full text-neutral-900 dark:text-neutral-100" />
+        // <IconUser className="h-full w-full text-neutral-900 dark:text-neutral-100" />
+        <User
+          animateOnHover
+          className="h-full w-full text-neutral-900 dark:text-neutral-100"
+        />
       ),
       href: "/about",
     },
     {
       title: "Blogs",
       icon: (
-        <IconArticle className="h-full w-full text-neutral-900 dark:text-neutral-100" />
+        <FileText
+          animateOnHover
+          className="h-full w-full text-neutral-900 dark:text-neutral-100"
+        />
       ),
       href: "/blog",
     },
     {
       title: "Contact",
       icon: (
-        <IconMail className="h-full w-full text-neutral-900 dark:text-neutral-100" />
+        // <IconMail className="h-full w-full text-neutral-900 dark:text-neutral-100" />
+        <MailOpen
+          animateOnHover
+          className="h-full w-full text-neutral-900 dark:text-neutral-100"
+        />
       ),
       href: "/contact",
     },

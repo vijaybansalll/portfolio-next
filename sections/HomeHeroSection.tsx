@@ -16,6 +16,8 @@ import { Button } from "@/components/ui/button";
 import { ArrowRightIcon } from "lucide-react";
 import { HiDownload } from "react-icons/hi";
 import AboutDescription from "@/components/aboutDescription";
+import { Download01 } from "@/components/animate-ui/icons/hugeicons/download-01";
+import { AvatarGroup } from "@/components/ui/avatar-group";
 
 const HomeHeroSection = () => {
   const LINKS: LinksProps[] = [
@@ -91,7 +93,7 @@ const HomeHeroSection = () => {
               <Link href={"/vijay-bansal-resume.pdf"} download={true}>
                 <Button variant={"outline"} className="w-full">
                   Download CV
-                  <HiDownload />
+                  <Download01 animateOnHover />
                 </Button>
               </Link>
             </NativeMagnetic>

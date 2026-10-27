@@ -6,6 +6,8 @@ import { flushSync } from "react-dom";
 import { useTheme } from "next-themes";
 
 import { cn } from "@/lib/utils";
+import { Sun03 } from "../animate-ui/icons/hugeicons/sun-03";
+import { Moon02 } from "../animate-ui/icons/hugeicons/moon-02";
 
 interface AnimatedThemeTogglerProps extends React.ComponentPropsWithoutRef<"button"> {
   duration?: number;
@@ -82,9 +84,17 @@ export const AnimatedThemeToggler = ({
       {...props}
     >
       {isDark ? (
-        <Sun size={size} className={cn("transition-transform", iconClassName)} />
+        <Sun03
+          animateOnHover
+          size={size}
+          className={cn("transition-transform", iconClassName)}
+        />
       ) : (
-        <Moon size={size} className={cn("transition-transform", iconClassName)} />
+        <Moon02
+          animateOnHover
+          size={size}
+          className={cn("transition-transform", iconClassName)}
+        />
       )}
       <span className="sr-only">Toggle theme</span>
     </button>

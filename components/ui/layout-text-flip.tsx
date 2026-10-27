@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from "motion/react";
 import { cn } from "@/lib/utils";
 
 export const LayoutTextFlip = ({
-  words = ["Landing Pages", "Component Blocks", "Page Sections", "3D Shaders"],
+  words = [""],
   duration = 3000,
 }: {
   words: string[];
