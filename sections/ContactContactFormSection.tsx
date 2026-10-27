@@ -1,4 +1,4 @@
-import { useForm } from "react-hook-form";
+﻿import { useForm } from "react-hook-form";
 import { CircleAlert, LoaderIcon } from "lucide-react";
 import { toast } from "sonner";
 import { Block } from "@/components/block";
@@ -58,7 +58,6 @@ const ContactContactFormSection = () => {
         onSubmit={handleSubmit(formSubmit)}
         className="mx-auto flex flex-col gap-6"
       >
-        {/* Name */}
         <InputContainer className="relative">
           <Label htmlFor="name">Name</Label>
           <Input
@@ -98,8 +97,6 @@ const ContactContactFormSection = () => {
             </div>
           )}
         </InputContainer>
-
-        {/* Email */}
         <InputContainer className="relative">
           <Label htmlFor="email">Email</Label>
           <Input
@@ -138,8 +135,6 @@ const ContactContactFormSection = () => {
             </div>
           )}
         </InputContainer>
-
-        {/* Message */}
         <InputContainer className="relative">
           <Label htmlFor="message">Message</Label>
           <Textarea
@@ -177,8 +172,6 @@ const ContactContactFormSection = () => {
             </div>
           )}
         </InputContainer>
-
-        {/* Submit Button */}
 
         <SubmitBtn disabled={isSubmitting}>
           {isSubmitting ? (

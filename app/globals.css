@@ -165,7 +165,6 @@
   mix-blend-mode: normal;
 }
 
-/* Blog page css start */
 .blog-page-block h1 {
   @apply text-vj-primary dark:text-vj-primary-dark mb-5 text-2xl leading-tight! font-bold tracking-tighter md:text-4xl;
 }
@@ -185,4 +184,3 @@
 .blog-page-block hr {
   @apply my-4 border-neutral-200 md:my-8 dark:border-neutral-700;
 }
-/* Blog page css end*/

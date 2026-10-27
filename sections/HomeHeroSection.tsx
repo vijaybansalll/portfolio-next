@@ -1,6 +1,4 @@
-// "use client";
 import { Block } from "@/components/block";
-// import { usePathname } from "next/navigation";
 import { Heading } from "@/components/heading";
 import { Para } from "@/components/para";
 import { LayoutTextFlip } from "@/components/ui/layout-text-flip";
@@ -20,7 +18,6 @@ import { HiDownload } from "react-icons/hi";
 import AboutDescription from "@/components/aboutDescription";
 
 const HomeHeroSection = () => {
-  // const pathname = usePathname();
   const LINKS: LinksProps[] = [
     {
       link: "https://x.com/vijaybansalll",
@@ -79,9 +76,6 @@ const HomeHeroSection = () => {
             />
           </div>
           <Para className="max-w-lg pt-4 text-center text-sm text-black/80 md:text-left md:text-base dark:text-white/80">
-            {/* {pathname === "/about"
-              ? "A Frontend Developer specializing in React and Next.js. I build modern, high-performance web applications with a strong focus on clean UI, performance, and seamless user experiences. I enjoy transforming complex problems into intuitive digital solutions."
-              : "I'm a front-end developer with an eye for design. I'm passionate about building beautiful, user-friendly interfaces that are both functional and aesthetically pleasing."} */}
             <AboutDescription />
           </Para>
 

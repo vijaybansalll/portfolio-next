@@ -64,7 +64,6 @@ export function Chatbot() {
     setLoading(true);
 
     try {
-      // Filter out the initial assistant greeting before sending to API
       const apiMessages = newMessages.filter((_, index) => index !== 0);
 
       const res = await fetch("/api/chat", {
@@ -113,7 +112,6 @@ export function Chatbot() {
             exit="exit"
             className="bg-background w-80 overflow-hidden rounded-2xl border shadow-2xl backdrop-blur-xl md:w-96"
           >
-            {/* Header */}
             <div className="flex items-center justify-between border-b p-4">
               <div className="flex items-center gap-2 md:gap-3">
                 <Avatar className="h-10 w-10">
@@ -141,7 +139,6 @@ export function Chatbot() {
               </Tooltip>
             </div>
 
-            {/* Messages */}
             <div className="flex h-80 flex-col gap-4 overflow-y-auto p-4">
               {messages.map((msg, i) => (
                 <motion.div
@@ -180,7 +177,6 @@ export function Chatbot() {
                 </motion.div>
               ))}
 
-              {/* Loader */}
               {loading && (
                 <div className="flex gap-3">
                   <Avatar className="h-8 w-8">
@@ -195,7 +191,6 @@ export function Chatbot() {
               )}
             </div>
 
-            {/* Input */}
             <div className="border-t p-3">
               <form
                 onSubmit={(e) => {
@@ -226,8 +221,6 @@ export function Chatbot() {
           </motion.div>
         )}
       </AnimatePresence>
-
-      {/* Floating Button */}
 
       <Tooltip>
         <TooltipTrigger asChild>

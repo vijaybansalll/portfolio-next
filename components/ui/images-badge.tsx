@@ -9,21 +9,13 @@ interface ImagesBadgeProps {
   text: string;
   images: string[];
   className?: string;
-  /** Optional link URL */
   href?: string;
-  /** Link target attribute (e.g., "_blank" for new tab) */
   target?: string;
-  /** Folder dimensions { width, height } in pixels */
   folderSize?: { width: number; height: number };
-  /** Image dimensions when teased (peeking) { width, height } in pixels */
   teaserImageSize?: { width: number; height: number };
-  /** Image dimensions when hovered { width, height } in pixels */
   hoverImageSize?: { width: number; height: number };
-  /** How far images translate up on hover in pixels */
   hoverTranslateY?: number;
-  /** How far images spread horizontally on hover in pixels */
   hoverSpread?: number;
-  /** Rotation angle for fanned images on hover in degrees */
   hoverRotation?: number;
 }
 
@@ -42,10 +34,8 @@ export function ImagesBadge({
 }: ImagesBadgeProps) {
   const [isHovered, setIsHovered] = useState(false);
 
-  // Limit to max 3 images
   const displayImages = images.slice(0, 3);
 
-  // Calculate folder tab dimensions proportionally
   const tabWidth = folderSize.width * 0.375;
   const tabHeight = folderSize.height * 0.25;
 
@@ -63,7 +53,6 @@ export function ImagesBadge({
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      {/* Folder Container */}
       <motion.div
         className="relative"
         style={{
@@ -72,9 +61,7 @@ export function ImagesBadge({
           transformStyle: "preserve-3d",
         }}
       >
-        {/* Folder Back */}
         <div className="absolute inset-0 rounded-lg bg-linear-to-b from-amber-400 to-amber-500 shadow-sm dark:from-amber-500 dark:to-amber-600">
-          {/* Folder Tab */}
           <div
             className="absolute left-0.5 rounded-t-[2px] bg-linear-to-b from-amber-300 to-amber-400 dark:from-amber-400 dark:to-amber-500"
             style={{
@@ -85,11 +72,9 @@ export function ImagesBadge({
           />
         </div>
 
-        {/* Images that pop out */}
         {displayImages.map((image, index) => {
           const totalImages = displayImages.length;
 
-          // Calculate rotation based on index
           const baseRotation =
             totalImages === 1
               ? 0
@@ -97,7 +82,6 @@ export function ImagesBadge({
                 ? (index - 0.5) * hoverRotation
                 : (index - 1) * hoverRotation;
 
-          // Hover positions - fan out
           const hoverY = hoverTranslateY - (totalImages - 1 - index) * 3;
           const hoverX =
             totalImages === 1
@@ -106,7 +90,6 @@ export function ImagesBadge({
                 ? (index - 0.5) * hoverSpread
                 : (index - 1) * hoverSpread;
 
-          // Teaser positions - slight peek from folder
           const teaseY = -4 - (totalImages - 1 - index) * 1;
           const teaseRotation =
             totalImages === 1
@@ -148,7 +131,6 @@ export function ImagesBadge({
           );
         })}
 
-        {/* Folder Front (flattens on hover) */}
         <motion.div
           className="absolute inset-x-0 bottom-0 h-[70%] origin-bottom rounded-lg bg-linear-to-b from-amber-300 to-amber-400 shadow-sm dark:from-amber-400 dark:to-amber-500"
           animate={{
@@ -165,12 +147,10 @@ export function ImagesBadge({
             zIndex: 20,
           }}
         >
-          {/* Folder line detail */}
           <div className="absolute top-1 right-1 left-1 h-px bg-amber-200/50 dark:bg-amber-300/50" />
         </motion.div>
       </motion.div>
 
-      {/* Text */}
       <span className="text-sm font-medium text-neutral-700 dark:text-neutral-200">
         {text}
       </span>

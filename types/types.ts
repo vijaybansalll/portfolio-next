@@ -19,7 +19,6 @@ export type BLOG_CARDS_PROPS = {
 export type WORK_COMPANIES_PROPS = {
   companyName: string;
   companyLogo: string;
-  // companyUrl: string;
   role: string;
   duration: string;
   description: string;

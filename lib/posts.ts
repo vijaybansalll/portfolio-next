@@ -7,7 +7,6 @@ import { BLOG_CARDS_PROPS } from "@/types/types";
 
 const postsDirectory = path.join(process.cwd(), "posts");
 
-// Get all posts
 export function getAllPosts() {
   const fileNames = fs.readdirSync(postsDirectory);
 
@@ -27,7 +26,6 @@ export function getAllPosts() {
     });
 }
 
-// Get single post
 export async function getPost(slug: string): Promise<BLOG_CARDS_PROPS | null> {
   const fullPath = path.join(postsDirectory, `${slug}.md`);
 

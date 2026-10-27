@@ -37,7 +37,6 @@ export default function NavigationBar() {
 
   return (
     <Navbar>
-      {/* Desktop Navigation */}
       <NavBody>
         <NavbarLogo />
         <div className="flex items-center gap-2">
@@ -46,7 +45,6 @@ export default function NavigationBar() {
         </div>
       </NavBody>
 
-      {/* Mobile Navigation */}
       <MobileNav>
         <MobileNavHeader>
           <NavbarLogo />

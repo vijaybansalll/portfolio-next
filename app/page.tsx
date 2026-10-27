@@ -9,7 +9,6 @@ import TestimonialSection from "@/components/testimonials-section";
 export default function Home() {
   return (
     <div>
-      {/* <HomeHeroSection /> */}
       <HomeProjectsSection />
       <LogoCarousel />
       <HomeBlogSection />

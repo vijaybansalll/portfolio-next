@@ -69,7 +69,6 @@ export const AnimatedThemeToggler = ({
     );
   }, [isDark, duration, setTheme]);
 
-  // Avoid rendering until mounted (important!)
   if (!mounted) return null;
 
   return (

@@ -1,7 +1,6 @@
 import OpenAI from "openai";
 import { NextResponse } from "next/server";
 
-// Initialize OpenAI client lazily inside the handler (will be created when request arrives)
 let openaiClient: OpenAI | null = null;
 
 function getOpenAIClient(): OpenAI {
@@ -14,9 +13,7 @@ function getOpenAIClient(): OpenAI {
   return openaiClient;
 }
 
-// 🔹 Predefined answers (instant + smart)
 const predefinedAnswers: Record<string, string> = {
-  // Identity
   "who are you":
     "I'm Vijay's AI assistant 🤖. I can help you explore his skills, projects, and experience.",
 
@@ -26,14 +23,12 @@ const predefinedAnswers: Record<string, string> = {
   "tell me about vijay":
     "Vijay is a passionate frontend developer with expertise in modern web technologies like React, Next.js, and TypeScript. He loves crafting smooth user experiences and clean interfaces.",
 
-  // Work & Role
   "what do you do":
     "Vijay builds modern web applications with a focus on performance, scalability, and great user experience.",
 
   "what does vijay do":
     "He develops responsive and interactive web apps using React, Next.js, and modern frontend tools.",
 
-  // Skills
   skills:
     "Vijay works with React, Next.js, TypeScript, Tailwind CSS, JavaScript, and modern UI/UX practices.",
 
@@ -43,27 +38,23 @@ const predefinedAnswers: Record<string, string> = {
   technologies:
     "Vijay is experienced in frontend technologies like React, Next.js, TypeScript, Tailwind CSS, and integrates APIs effectively.",
 
-  // Projects
   projects:
     "Vijay has built scalable frontend apps, reusable UI components, and AI-powered features like chatbots.",
 
   "show projects":
     "You can explore Vijay's projects in the projects section of this portfolio. They include modern UI apps and AI integrations.",
 
-  // Experience
   experience:
     "Vijay has hands-on experience building production-ready web applications and continuously improves his frontend and AI skills.",
 
   "work experience":
     "He has worked on real-world applications focusing on performance, UI consistency, and scalability.",
 
-  // AI
   ai: "Vijay is actively exploring AI integrations, including chatbots and smart UI features.",
 
   "ai projects":
     "He has worked on AI-powered features like this chatbot and is continuously experimenting with intelligent interfaces.",
 
-  // Contact
   contact:
     "You can reach out to Vijay through the contact section on this portfolio.",
 
@@ -73,25 +64,21 @@ const predefinedAnswers: Record<string, string> = {
   email:
     "You can contact Vijay via the contact section where his email details are available.",
 
-  // Availability
   "are you available for work":
     "Yes! Vijay is open to exciting opportunities and freelance projects.",
 
   "hire vijay":
     "You can hire Vijay for frontend development projects. Reach out via the contact section to discuss your requirements.",
 
-  // Education
   education:
     "Vijay has a strong foundation in web development and continuously learns new technologies to stay updated.",
 
-  // Personality / Soft touch
   "why should i hire vijay":
     "Vijay combines strong technical skills with a keen eye for design, ensuring both functionality and great user experience.",
 
   "what makes vijay different":
     "He focuses on clean code, performance, and intuitive UI — not just making things work, but making them feel great to use.",
 
-  // Fallback-ish friendly answers
   help: "You can ask about Vijay's skills, projects, experience, or how to contact him.",
 
   hello: "Hey there! 👋 Ask me anything about Vijay.",
@@ -102,7 +89,6 @@ const predefinedAnswers: Record<string, string> = {
     "You're welcome! 😊 Let me know if you'd like to know more about Vijay.",
 };
 
-// 🔹 Match predefined answers
 function getPredefinedAnswer(message: string) {
   const lower = message.toLowerCase();
 
@@ -115,7 +101,6 @@ function getPredefinedAnswer(message: string) {
   return null;
 }
 
-// 🔹 System prompt (AI personality)
 const SYSTEM_PROMPT = `
 You are Vijay's AI assistant.
 
@@ -166,7 +151,6 @@ export async function POST(req: Request) {
 
     const userMessage = messages[messages.length - 1].content;
 
-    // ✅ 1. Predefined answer check
     const predefined = getPredefinedAnswer(userMessage);
 
     if (predefined) {
@@ -175,7 +159,6 @@ export async function POST(req: Request) {
       });
     }
 
-    // ✅ 2. AI fallback (OpenRouter)
     const completion = await getOpenAIClient().chat.completions.create({
       model: "openai/gpt-3.5-turbo",
 

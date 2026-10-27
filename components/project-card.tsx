@@ -23,7 +23,6 @@ export const ProjectCard = ({
   img,
   title,
   domain,
-  // websiteURL,
   description,
   techStack,
 }: ProjectCardProps) => {

@@ -21,15 +21,13 @@ import {
   TooltipContent,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-// Define the structure for our logo objects
+
 interface Logo {
   name: string;
   id: number;
   img: React.ComponentType<React.SVGProps<SVGSVGElement>>;
 }
 
-// Utility function to randomly shuffle an array
-// This is used to mix up the order of logos for a more dynamic display
 const shuffleArray = <T,>(array: T[]): T[] => {
   const shuffled = [...array];
   for (let i = shuffled.length - 1; i > 0; i--) {
@@ -39,18 +37,14 @@ const shuffleArray = <T,>(array: T[]): T[] => {
   return shuffled;
 };
 
-// Utility function to distribute logos across multiple columns
-// This ensures each column has a balanced number of logos
 const distributeLogos = (allLogos: Logo[], columnCount: number): Logo[][] => {
   const shuffled = shuffleArray(allLogos);
   const columns: Logo[][] = Array.from({ length: columnCount }, () => []);
 
-  // Distribute logos evenly across columns
   shuffled.forEach((logo, index) => {
     columns[index % columnCount].push(logo);
   });
 
-  // Ensure all columns have the same number of logos by filling shorter columns
   const maxLength = Math.max(...columns.map((col) => col.length));
   columns.forEach((col) => {
     while (col.length < maxLength) {
@@ -61,14 +55,12 @@ const distributeLogos = (allLogos: Logo[], columnCount: number): Logo[][] => {
   return columns;
 };
 
-// Props for the LogoColumn component
 interface LogoColumnProps {
   logos: Logo[];
   index: number;
   currentTime: number;
 }
 
-// LogoColumn component: Displays a single column of animated logos
 const LogoColumn: React.FC<LogoColumnProps> = React.memo(
   ({ logos, index, currentTime }) => {
     const cycleInterval = 2000;
@@ -142,7 +134,6 @@ const LogoColumn: React.FC<LogoColumnProps> = React.memo(
 
 LogoColumn.displayName = "LogoColumn";
 
-// Main LogoCarousel component
 function LogoCarousel({ columnCount = 5 }: { columnCount?: number }) {
   const [currentTime, setCurrentTime] = useState(0);
 

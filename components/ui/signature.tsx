@@ -6,25 +6,15 @@ import * as opentype from "opentype.js";
 import { cn } from "@/lib/utils";
 
 interface SignatureProps {
-  /** Text to generate signature for */
   text?: string;
-  /** Color of the signature path */
   color?: string;
-  /** Font size of the signature */
   fontSize?: number;
-  /** Animation duration per letter or base duration in seconds */
   duration?: number;
-  /** Delay before animation starts in seconds */
   delay?: number;
-  /** Delay between consecutive letters starting in seconds */
   delayBetweenLetters?: number;
-  /** Additional CSS classes */
   className?: string;
-  /** Only animate when in view */
   inView?: boolean;
-  /** Only animate once */
   once?: boolean;
-  /** Custom font URL to load */
   fontUrl?: string;
 }
 
@@ -62,7 +52,6 @@ async function loadFont(urls: string[]): Promise<opentype.Font> {
         return font;
       }
     } catch {
-      // Try next url
     }
   }
 
@@ -83,9 +72,9 @@ export function Signature({
 }: SignatureProps) {
   const [paths, setPaths] = useState<string[]>([]);
   const [width, setWidth] = useState<number>(300);
-  const height = fontSize * 3; // Give plenty of vertical space
+  const height = fontSize * 3;
   const horizontalPadding = fontSize * 0.1;
-  const topMargin = fontSize * 1.5; // Shift down
+  const topMargin = fontSize * 1.5;
   const baseline = topMargin;
   const maskId = `signature-reveal-${useId().replace(/:/g, "")}`;
 

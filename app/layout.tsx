@@ -31,7 +31,6 @@ export default function RootLayout({
           <TooltipProvider>
             <div className="relative mx-auto h-full min-h-screen w-full">
               <div
-                // style={{ width: "100%", height: "400px", position: "relative" }}
                 className="relative h-70 w-full md:h-90"
               >
                 <GradientASCII

@@ -1,7 +1,7 @@
 "use client";
 
+import { cn } from "@/lib/utils";
 import { useState } from "react";
-import { FloatingDock, FloatingDockItem } from "@/components/ui/floating-dock";
 import { motion, useMotionValueEvent, useScroll } from "motion/react";
 import { AnimatedThemeToggler } from "@/components/ui/animated-theme-toggler";
 import {
@@ -11,6 +11,7 @@ import {
   IconMail,
   IconArticle,
 } from "@tabler/icons-react";
+import { FloatingDock, FloatingDockItem } from "@/components/ui/floating-dock";
 
 export default function FloatingDockDemo() {
   const { scrollY } = useScroll();
@@ -20,20 +21,16 @@ export default function FloatingDockDemo() {
     const previous = scrollY.getPrevious() ?? 0;
     const diff = current - previous;
 
-    // Always keep visible when near the top of the page
     if (current < 50) {
       setVisible(true);
     } else if (diff > 5) {
-      // Scroll down -> hide
       setVisible(false);
     } else if (diff < -5) {
-      // Scroll up -> show
       setVisible(true);
     }
   });
 
   const links: FloatingDockItem[] = [
-    // 🔹 Pages links
     {
       title: "Home",
       icon: (
@@ -74,7 +71,6 @@ export default function FloatingDockDemo() {
       separator: true,
     },
 
-    // 🔹 Dark-Light mode toggle at the end item
     {
       title: "Toggle Theme",
       icon: (

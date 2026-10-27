@@ -12,42 +12,13 @@ import {
 import { useRef, useState } from "react";
 
 export interface NativeMagneticProps {
-  /**
-   * Content to apply the magnetic effect to.
-   */
   children: React.ReactNode;
-  /**
-   * Strength of the magnetic pull (0-1 range recommended).
-   * Default: 0.3
-   */
   strength?: number;
-  /**
-   * Spring stiffness for the animation.
-   * Default: 300
-   */
   stiffness?: number;
-  /**
-   * Spring damping for the animation.
-   * Default: 30
-   */
   damping?: number;
-  /**
-   * Whether to scale up on hover.
-   * Default: true
-   */
   scaleOnHover?: boolean;
-  /**
-   * Wrapper element type.
-   * Default: 'div'
-   */
   as?: "div" | "button" | "a";
-  /**
-   * Link href (only applies when as="a").
-   */
   href?: string;
-  /**
-   * Click handler.
-   */
   onClick?: () => void;
   className?: string;
 }

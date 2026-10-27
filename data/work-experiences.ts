@@ -4,7 +4,6 @@ export const WORK_COMPANIES: WORK_COMPANIES_PROPS[] = [
   {
     companyName: "Webcom Systems Pvt. Ltd.",
     companyLogo: "/companies/webcom-logo.png",
-    // companyUrl: "https://webcomsystems.com.au/",
     role: "Front-end Developer",
     duration: "June 2024 - Present",
     description:

@@ -26,7 +26,7 @@ export default function VoiceMessageBubble({
   const intervalRef = React.useRef<NodeJS.Timeout | null>(null);
 
   const words = text.split(" ").length;
-  const duration = (words / 150) * 60; // seconds
+  const duration = (words / 150) * 60;
 
   const speak = () => {
     if (!window.speechSynthesis) return;
@@ -82,7 +82,7 @@ export default function VoiceMessageBubble({
       }
     };
 
-    updateBars(); // run on mount
+    updateBars();
     window.addEventListener("resize", updateBars);
 
     return () => window.removeEventListener("resize", updateBars);
@@ -101,7 +101,6 @@ export default function VoiceMessageBubble({
         className,
       )}
     >
-      {/* Play/Pause */}
       <Tooltip>
         <TooltipTrigger asChild>
           <Button onClick={togglePlay} className="rounded-full p-2.5!">
@@ -114,7 +113,6 @@ export default function VoiceMessageBubble({
         </TooltipContent>
       </Tooltip>
 
-      {/* Waveform Bars */}
       <div className="flex h-5 w-full items-center gap-0.5 overflow-hidden">
         {bars.map((height, i) => {
           const barPercent = (i / bars.length) * 100;
