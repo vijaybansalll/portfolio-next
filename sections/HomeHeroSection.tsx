@@ -36,7 +36,7 @@ const HomeHeroSection = () => {
     },
   ];
   return (
-    <Block className="-mt-70 mb-10 border-0 pt-0 shadow-[none] md:-mt-50 md:mb-15 dark:shadow-[none]">
+    <Block className="-mt-70 mb-10 border-0 pt-0 shadow-[none] md:-mt-30 md:mb-15 dark:shadow-[none]">
       <div className="flex flex-col items-center gap-8 md:flex-row">
         <div className="flex flex-col justify-center gap-4">
           <NavbarLogo className="h-30 w-30" />
