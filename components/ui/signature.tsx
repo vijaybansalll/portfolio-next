@@ -109,7 +109,8 @@ export function Signature({
           setWidth(x + horizontalPadding);
         }
       } catch (error) {
-        console.error("Signature component font load error:", error);
+        // Fallback when opentype font parsing is unavailable or failed
+        // console.warn("Signature font load fallback:", error);
         if (isMounted) {
           setPaths([]);
           setWidth(text.length * fontSize * 0.6);
