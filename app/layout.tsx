@@ -57,7 +57,9 @@ export default function RootLayout({
               </div>
               <div className="relative mx-auto h-full w-full max-w-4xl px-0 pt-0 md:px-8 md:pb-0">
                 <HomeHeroSection />
-                {children}
+                <main id="main-content" className="w-full">
+                  {children}
+                </main>
                 <Footer />
               </div>
             </div>

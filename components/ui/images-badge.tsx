@@ -124,8 +124,10 @@ export function ImagesBadge({
               <Image
                 src={image}
                 alt={`Preview ${index + 1}`}
-                width={200}
-                height={200}
+                width={80}
+                height={50}
+                sizes="80px"
+                className="h-full w-full object-cover object-top"
               />
             </motion.div>
           );
