@@ -260,6 +260,7 @@ export const NavbarLogo = ({ className }: { className?: string }) => {
         width={40}
         height={40}
         priority
+        sizes="40px"
         className={cn("rounded-full", className)}
       />
     </Link>

@@ -53,6 +53,7 @@ export const ProjectCard = ({
             width={500}
             height={300}
             priority={priority}
+            sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
             className={cn(
               "pointer-events-none absolute top-0 right-0 left-0 size-full scale-125 object-cover opacity-100 blur-[100px] brightness-600 saturate-150",
             )}
@@ -67,6 +68,7 @@ export const ProjectCard = ({
                   width={500}
                   height={1500}
                   priority={priority}
+                  sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
                   className={cn(
                     "h-full w-full object-cover object-top transition-all duration-3000 ease-in-out",
                     "group-hover:object-bottom",

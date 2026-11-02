@@ -73,7 +73,7 @@ const WorkCard = ({
         />
       </div>
       <div className="hidden flex-1 sm:block">
-        <Image src={companyLogo} alt={`${companyName} company logo`} width={150} height={150} />
+        <Image src={companyLogo} alt={`${companyName} company logo`} width={150} height={150} sizes="150px" className="aspect-square object-contain" />
       </div>
     </div>
   );

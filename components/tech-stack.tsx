@@ -140,7 +140,8 @@ export function TechStake({ className }: { className?: string }) {
               alt="Vijay Bansal avatar"
               width={150}
               height={150}
-              className="rounded-full"
+              sizes="150px"
+              className="rounded-full aspect-square object-cover"
             />
           </Circle>
         </div>
