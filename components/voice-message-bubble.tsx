@@ -103,7 +103,7 @@ export default function VoiceMessageBubble({
     >
       <Tooltip>
         <TooltipTrigger asChild>
-          <Button onClick={togglePlay} className="rounded-full p-2.5!">
+          <Button onClick={togglePlay} aria-label={isPlaying ? "Pause voice message" : "Play voice message"} className="rounded-full p-2.5!">
             {isPlaying ? <Pause /> : <Play />}
           </Button>
         </TooltipTrigger>

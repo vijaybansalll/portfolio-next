@@ -53,6 +53,7 @@ const Footer = () => {
                 <Link
                   href={link.link}
                   target="_blank"
+                  aria-label={link.name}
                   className="h-4 w-4 text-neutral-500 hover:text-neutral-700 dark:text-neutral-400 dark:hover:text-neutral-200"
                 >
                   {link.Icon}

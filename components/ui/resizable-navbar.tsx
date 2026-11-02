@@ -234,19 +234,29 @@ export const MobileNavToggle = ({
   isOpen: boolean;
   onClick: () => void;
 }) => {
-  return isOpen ? (
-    <IconX className="text-black dark:text-white" onClick={onClick} />
-  ) : (
-    <IconMenu2 className="text-black dark:text-white" onClick={onClick} />
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
+      aria-expanded={isOpen}
+      className="flex cursor-pointer items-center justify-center border-0 bg-transparent p-1"
+    >
+      {isOpen ? (
+        <IconX className="text-black dark:text-white" />
+      ) : (
+        <IconMenu2 className="text-black dark:text-white" />
+      )}
+    </button>
   );
 };
 
 export const NavbarLogo = ({ className }: { className?: string }) => {
   return (
-    <Link href="/" className="relative z-20">
+    <Link href="/" aria-label="Vijay Bansal Home" className="relative z-20">
       <Image
         src="/logo.jpg"
-        alt="logo"
+        alt="Vijay Bansal logo"
         width={40}
         height={40}
         priority

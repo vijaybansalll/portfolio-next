@@ -117,20 +117,20 @@ export function Chatbot() {
             <div className="flex items-center justify-between border-b p-4">
               <div className="flex items-center gap-2 md:gap-3">
                 <Avatar className="h-10 w-10">
-                  <AvatarImage src="/logo.jpg" />
+                        <AvatarImage src="/logo.jpg" alt="Vijay AI Avatar" />
                   <AvatarFallback>AI</AvatarFallback>
                 </Avatar>
                 <div>
-                  <h3 className="text-sm font-semibold">
+                  <span className="text-sm font-semibold">
                     Vijay&apos;s AI Assistant
-                  </h3>
+                  </span>
                   <span className="text-muted-foreground text-xs">Online</span>
                 </div>
               </div>
 
               <Tooltip>
                 <TooltipTrigger asChild>
-                  <Button size="icon" variant="ghost" onClick={toggleOpen}>
+                  <Button size="icon" variant="ghost" onClick={toggleOpen} aria-label="Close Chat">
                     <X animateOnHover className="h-4 w-4" />
                   </Button>
                 </TooltipTrigger>
@@ -158,7 +158,7 @@ export function Chatbot() {
                       </AvatarFallback>
                     ) : (
                       <>
-                        <AvatarImage src="/logo.jpg" />
+                        <AvatarImage src="/logo.jpg" alt="Vijay AI Avatar" />
                         <AvatarFallback className="text-xs md:text-sm">
                           AI
                         </AvatarFallback>
@@ -205,11 +205,12 @@ export function Chatbot() {
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
                   placeholder="Ask something..."
+                  aria-label="Ask AI Assistant a question"
                   className="flex-1 rounded-full border px-4 py-2 text-sm outline-none"
                 />
                 <Tooltip>
                   <TooltipTrigger asChild>
-                    <Button size="icon" disabled={!input.trim() || loading}>
+                    <Button size="icon" disabled={!input.trim() || loading} aria-label="Send message">
                       <Sent animateOnHover className="h-4 w-4" />
                     </Button>
                   </TooltipTrigger>
@@ -230,6 +231,8 @@ export function Chatbot() {
             onClick={toggleOpen}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
+            aria-label={isOpen ? "Close AI Assistant chat" : "Open AI Assistant chat"}
+            aria-expanded={isOpen}
             className={cn(
               "flex h-14 w-14 items-center justify-center rounded-full bg-neutral-800 text-neutral-100 shadow-lg dark:bg-neutral-100 dark:text-neutral-800",
               isOpen ? "bg-red-500! text-white!" : "",

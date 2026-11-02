@@ -48,7 +48,8 @@ export const ProjectCard = ({
         >
           <Image
             src={img}
-            alt={title}
+            alt=""
+            aria-hidden="true"
             width={500}
             height={300}
             priority={priority}
@@ -62,7 +63,7 @@ export const ProjectCard = ({
               <div className="h-full max-h-37.5 w-full overflow-hidden rounded-lg">
                 <Image
                   src={img}
-                  alt={title}
+                  alt={`${title} project preview screenshot`}
                   width={500}
                   height={1500}
                   priority={priority}

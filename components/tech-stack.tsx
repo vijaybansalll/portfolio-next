@@ -137,7 +137,7 @@ export function TechStake({ className }: { className?: string }) {
           <Circle ref={div6Ref} className="size-32 p-0">
             <Image
               src="/logo.jpg"
-              alt="logo"
+              alt="Vijay Bansal avatar"
               width={150}
               height={150}
               className="rounded-full"
