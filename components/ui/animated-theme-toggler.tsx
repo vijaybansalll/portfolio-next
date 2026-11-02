@@ -49,10 +49,11 @@ export const AnimatedThemeToggler = ({
 
     const x = left + width / 2;
     const y = top + height / 2;
-
+    const right = window.innerWidth - left;
+    const bottom = window.innerHeight - top;
     const maxRadius = Math.hypot(
-      Math.max(left, window.innerWidth - left),
-      Math.max(top, window.innerHeight - top),
+      Math.max(left, right),
+      Math.max(top, bottom),
     );
 
     document.documentElement.animate(
@@ -70,7 +71,22 @@ export const AnimatedThemeToggler = ({
     );
   }, [isDark, duration, setTheme]);
 
-  if (!mounted) return null;
+  if (!mounted) {
+    return (
+      <button
+        type="button"
+        aria-label="Toggle theme"
+        className={cn(
+          "text-vj-secondary cursor-pointer rounded-md p-1.5 hover:bg-gray-100 dark:hover:bg-neutral-800",
+          className,
+        )}
+        {...props}
+      >
+        <span className="inline-block size-[15px]" aria-hidden="true" />
+        <span className="sr-only">Toggle theme</span>
+      </button>
+    );
+  }
 
   return (
     <button

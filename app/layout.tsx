@@ -5,11 +5,11 @@ import { Inter } from "next/font/google";
 import localFont from "next/font/local";
 import Footer from "@/components/footer";
 import { ThemeProvider } from "next-themes";
-import { Chatbot } from "@/components/chatbot";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import FloatingDockDemo from "@/components/floating-dock-demo";
 import HomeHeroSection from "@/sections/HomeHeroSection";
 import Aurora from "@/components/Aurora";
+import { DynamicChatbot } from "@/components/dynamic-chatbot";
 
 export const metadata: Metadata = {
   title: "Vijay Bansal",
@@ -62,7 +62,7 @@ export default function RootLayout({
               </div>
             </div>
             <Toaster position="top-center" />
-            <Chatbot />
+            <DynamicChatbot />
             <FloatingDockDemo />
           </TooltipProvider>
         </ThemeProvider>

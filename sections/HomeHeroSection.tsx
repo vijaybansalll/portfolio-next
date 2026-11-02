@@ -63,7 +63,7 @@ const HomeHeroSection = () => {
         </div>
         <div>
           <div className="flex flex-col items-center gap-2 md:flex-row">
-            <Heading className="">Vijay Bansal</Heading>
+            <Heading className="" initial={false} whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}>Vijay Bansal</Heading>
 
             <LayoutTextFlip
               words={[
@@ -76,7 +76,7 @@ const HomeHeroSection = () => {
               ]}
             />
           </div>
-          <Para className="max-w-lg pt-4 text-center text-sm text-black/80 md:text-left md:text-base dark:text-white/80">
+          <Para className="max-w-lg pt-4 text-center text-sm text-black/80 md:text-left md:text-base dark:text-white/80" initial={false} whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}>
             <AboutDescription />
           </Para>
 

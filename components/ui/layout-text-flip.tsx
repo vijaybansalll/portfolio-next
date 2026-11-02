@@ -246,7 +246,7 @@ export const LayoutTextFlip = ({
       <AnimatePresence mode="popLayout" initial={false}>
         <motion.span
           key={currentIndex}
-          initial={{ y: -40, filter: "blur(20px)", opacity: 0 }}
+          initial={currentIndex === 0 ? false : { y: -40, filter: "blur(20px)", opacity: 0 }}
           animate={{
             y: 0,
             filter: "blur(0px)",
