@@ -1,5 +1,7 @@
 import OpenAI from "openai";
 import { NextResponse } from "next/server";
+import { z } from "zod";
+import { checkRateLimit, getClientIp } from "@/lib/ratelimit";
 
 let openaiClient: OpenAI | null = null;
 
@@ -117,11 +119,73 @@ Rules:
 - If question is unrelated, politely redirect to Vijay's work
 `;
 
+const chatMessageSchema = z.object({
+  role: z.enum(["system", "user", "assistant"]),
+  content: z.string().min(1).max(4000),
+});
+
+const chatRequestSchema = z.discriminatedUnion("mode", [
+  z.object({
+    mode: z.literal("summary"),
+    content: z.string().min(1, "Content is required for summary").max(20000),
+  }),
+  z.object({
+    mode: z.literal("chat").optional(),
+    messages: z.array(chatMessageSchema).min(1, "At least one message is required"),
+  }),
+]);
+
 export async function POST(req: Request) {
   try {
-    const { messages, mode, content } = await req.json();
+    const ip = getClientIp(req);
+    const rateLimit = await checkRateLimit(ip, "chat");
 
-    if (mode === "summary") {
+    if (!rateLimit.success) {
+      return NextResponse.json(
+        {
+          error: "Too many requests. Please slow down and try again shortly.",
+        },
+        {
+          status: 429,
+          headers: {
+            "X-RateLimit-Limit": rateLimit.limit.toString(),
+            "X-RateLimit-Remaining": rateLimit.remaining.toString(),
+            "X-RateLimit-Reset": rateLimit.reset.toString(),
+          },
+        },
+      );
+    }
+
+    let body: unknown;
+    try {
+      body = await req.json();
+    } catch {
+      return NextResponse.json(
+        { error: "Invalid JSON body" },
+        { status: 400 },
+      );
+    }
+
+    const validationResult = chatRequestSchema.safeParse(body);
+    if (!validationResult.success) {
+      return NextResponse.json(
+        {
+          error: "Validation failed",
+          details: validationResult.error.issues,
+        },
+        { status: 400 },
+      );
+    }
+
+    const rateLimitHeaders = {
+      "X-RateLimit-Limit": rateLimit.limit.toString(),
+      "X-RateLimit-Remaining": rateLimit.remaining.toString(),
+      "X-RateLimit-Reset": rateLimit.reset.toString(),
+    };
+
+    const data = validationResult.data;
+
+    if (data.mode === "summary") {
       const completion = await getOpenAIClient().chat.completions.create({
         model: "openai/gpt-3.5-turbo",
         messages: [
@@ -132,36 +196,34 @@ export async function POST(req: Request) {
           },
           {
             role: "user",
-            content: content,
+            content: data.content,
           },
         ],
       });
 
-      return NextResponse.json({
-        summary: completion.choices[0].message.content,
-      });
-    }
-
-    if (!messages || messages.length === 0) {
       return NextResponse.json(
-        { error: "No messages provided" },
-        { status: 400 },
+        {
+          summary: completion.choices[0].message.content,
+        },
+        { headers: rateLimitHeaders },
       );
     }
 
+    const messages = data.messages;
     const userMessage = messages[messages.length - 1].content;
-
     const predefined = getPredefinedAnswer(userMessage);
 
     if (predefined) {
-      return NextResponse.json({
-        reply: { content: predefined },
-      });
+      return NextResponse.json(
+        {
+          reply: { content: predefined },
+        },
+        { headers: rateLimitHeaders },
+      );
     }
 
     const completion = await getOpenAIClient().chat.completions.create({
       model: "openai/gpt-3.5-turbo",
-
       messages: [
         {
           role: "system",
@@ -171,14 +233,18 @@ export async function POST(req: Request) {
       ],
     });
 
-    return NextResponse.json({
-      reply: {
-        content: completion.choices[0].message.content,
+    return NextResponse.json(
+      {
+        reply: {
+          content: completion.choices[0].message.content,
+        },
       },
-    });
+      { headers: rateLimitHeaders },
+    );
   } catch (err: unknown) {
-    const errorMessage = err instanceof Error ? err.message : "Something went wrong";
-    console.error("ERROR:", errorMessage);
+    const errorMessage =
+      err instanceof Error ? err.message : "Something went wrong";
+    console.error("Chat route error:", errorMessage);
 
     return NextResponse.json(
       { error: errorMessage },
