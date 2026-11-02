@@ -5,8 +5,8 @@ import { cn } from "@/lib/utils";
 import { getAllPosts } from "@/lib/posts";
 import { Para } from "@/components/para";
 import VoiceMessageBubble from "@/components/voice-message-bubble";
-import { BlogTag } from "@/components/blogTag";
-import BlogSummary from "@/components/blogSummary";
+import { BlogTag } from "@/components/blog-tag";
+import BlogSummary from "@/components/blog-summary";
 
 export default async function BlogPost({
   params,

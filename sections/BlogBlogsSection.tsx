@@ -1,6 +1,6 @@
 import { getAllPosts } from "@/lib/posts";
 import { Block } from "@/components/block";
-import { BlogGridCard } from "@/components/blogCard";
+import { BlogGridCard } from "@/components/blog-grid-card";
 
 const BlogBlogsSection = () => {
   const POSTS = getAllPosts();

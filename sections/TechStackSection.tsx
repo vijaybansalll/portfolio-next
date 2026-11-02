@@ -1,6 +1,6 @@
 import { Block } from "@/components/block";
 import { SectionHeading } from "@/components/section-heading";
-import { TechStake } from "@/components/techStake";
+import { TechStake } from "@/components/tech-stack";
 
 const TechStackSection = () => {
   return (

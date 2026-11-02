@@ -2,8 +2,8 @@
 
 import { useEffect, useState } from "react";
 import { Skeleton } from "@/components/ui/skeleton";
-import { GenerateLoader } from "@/components/generateLoader";
-import BlogSummaryPoint from "./blogSummaryPoint";
+import { GenerateLoader } from "@/components/generate-loader";
+import BlogSummaryPoint from "./blog-summary-point";
 
 export default function BlogSummary({ content }: { content: string }) {
   const [summary, setSummary] = useState<string>("");

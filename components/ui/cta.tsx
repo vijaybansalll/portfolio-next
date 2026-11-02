@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { motion } from "motion/react";
 import { Block } from "../block";
-import SharpBox from "../sharpBox";
+import SharpBox from "../sharp-box";
 import { ArrowRight02 } from "../animate-ui/icons/hugeicons/arrow-right-02";
 
 export function CallToAction() {

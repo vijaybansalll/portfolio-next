@@ -15,7 +15,7 @@ import {
   TailwindCSSFull,
 } from "../icons";
 import { Block } from "../block";
-import SharpBox from "../sharpBox";
+import SharpBox from "../sharp-box";
 import {
   Tooltip,
   TooltipContent,
