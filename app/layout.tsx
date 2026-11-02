@@ -2,6 +2,7 @@ import "./globals.css";
 import { Toaster } from "sonner";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import localFont from "next/font/local";
 import Footer from "@/components/footer";
 import { ThemeProvider } from "next-themes";
 import { Chatbot } from "@/components/chatbot";
@@ -17,6 +18,12 @@ export const metadata: Metadata = {
 
 const inter = Inter({ subsets: ["latin"] });
 
+const lastoria = localFont({
+  src: "../public/LastoriaBoldRegular.otf",
+  variable: "--font-lastoria",
+  display: "swap",
+});
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -24,7 +31,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.className} bg-white antialiased dark:bg-black`}>
+      <body
+        className={`${inter.className} ${lastoria.variable} bg-white antialiased dark:bg-black`}
+      >
         <ThemeProvider attribute="class" defaultTheme="system">
           <TooltipProvider>
             <div className="relative mx-auto h-full min-h-screen w-full">

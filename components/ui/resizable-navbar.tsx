@@ -249,6 +249,7 @@ export const NavbarLogo = ({ className }: { className?: string }) => {
         alt="logo"
         width={40}
         height={40}
+        priority
         className={cn("rounded-full", className)}
       />
     </Link>

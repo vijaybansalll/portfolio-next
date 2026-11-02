@@ -18,6 +18,7 @@ const ProjectProjectsSection = () => {
             domain={item.domain}
             description={item.discription}
             techStack={item.techStack}
+            priority={index < 3}
           />
         ))}
       </div>
