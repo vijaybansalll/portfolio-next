@@ -90,12 +90,12 @@ const HomeHeroSection = () => {
               </NativeMagnetic>
             </Link>
             <NativeMagnetic className="w-full sm:w-fit">
-              <Link href={"/vijay-bansal-resume.pdf"} download={true}>
+              <a href="/vijay-bansal-resume.pdf" download="vijay-bansal-resume.pdf" target="_blank" rel="noopener noreferrer">
                 <Button variant={"outline"} className="w-full">
                   Download CV
                   <Download01 animateOnHover />
                 </Button>
-              </Link>
+              </a>
             </NativeMagnetic>
           </div>
         </div>
