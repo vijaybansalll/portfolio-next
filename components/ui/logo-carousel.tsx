@@ -13,9 +13,9 @@ import {
   ReactFull,
   NextjsFull,
   TailwindCSSFull,
-} from "../icons";
-import { Block } from "../block";
-import SharpBox from "../sharp-box";
+} from "@/components/icons";
+import { Block } from "@/components/block";
+import SharpBox from "@/components/sharp-box";
 import {
   Tooltip,
   TooltipContent,

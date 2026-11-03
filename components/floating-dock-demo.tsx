@@ -4,11 +4,11 @@ import { useState } from "react";
 import { motion, useMotionValueEvent, useScroll } from "motion/react";
 import { AnimatedThemeToggler } from "@/components/ui/animated-theme-toggler";
 import { FloatingDock, FloatingDockItem } from "@/components/ui/floating-dock";
-import { Home03 } from "./animate-ui/icons/hugeicons/home-03";
-import { MailOpen } from "./animate-ui/icons/hugeicons/mail-open";
-import { Airplay } from "./animate-ui/icons/hugeicons/airplay";
-import { User } from "./animate-ui/icons/hugeicons/user";
-import { FileText } from "./animate-ui/icons/file-text";
+import { Home03 } from "@/components/animate-ui/icons/hugeicons/home-03";
+import { MailOpen } from "@/components/animate-ui/icons/hugeicons/mail-open";
+import { Airplay } from "@/components/animate-ui/icons/hugeicons/airplay";
+import { User } from "@/components/animate-ui/icons/hugeicons/user";
+import { FileText } from "@/components/animate-ui/icons/file-text";
 
 export default function FloatingDockDemo() {
   const { scrollY } = useScroll();

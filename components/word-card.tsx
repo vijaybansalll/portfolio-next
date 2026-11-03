@@ -1,6 +1,6 @@
 import Image from "next/image";
-import { Para } from "./para";
-import { AvatarGroup } from "./ui/avatar-group";
+import { Para } from "@/components/para";
+import { AvatarGroup } from "@/components/ui/avatar-group";
 import {
   Bootstrap,
   CSS,

@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useRef, type CSSProperties } from 'react';
-import './Aurora.css';
+import '@/components/Aurora.css';
 
 export interface AuroraProps {
   colorStops?: string[];

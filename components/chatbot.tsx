@@ -10,9 +10,9 @@ import {
   TooltipContent,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-import { MessageCircleMore } from "./animate-ui/icons/hugeicons/message-circle-more";
-import { X } from "./animate-ui/icons/x";
-import { Sent } from "./animate-ui/icons/hugeicons/sent";
+import { MessageCircleMore } from "@/components/animate-ui/icons/hugeicons/message-circle-more";
+import { X } from "@/components/animate-ui/icons/x";
+import { Sent } from "@/components/animate-ui/icons/hugeicons/sent";
 
 const containerVariants: Variants = {
   hidden: { opacity: 0, y: 20, scale: 0.95 },

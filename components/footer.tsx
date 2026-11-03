@@ -1,15 +1,15 @@
 "use client";
 
-import { Block } from "./block";
+import { Block } from "@/components/block";
 import { LinksProps } from "@/types/types";
-import { GitHub, LinkedIn, X } from "./icons";
+import { GitHub, LinkedIn, X } from "@/components/icons";
 import {
   Tooltip,
   TooltipContent,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import Link from "next/link";
-import { Signature } from "./ui/signature";
+import { Signature } from "@/components/ui/signature";
 
 const Footer = () => {
   const LINKS: LinksProps[] = [

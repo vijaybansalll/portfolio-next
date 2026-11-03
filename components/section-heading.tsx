@@ -1,7 +1,7 @@
 "use client";
 import { cn } from "@/lib/utils";
 import { motion } from "motion/react";
-import { DecorIcon } from "./sharp-box";
+import { DecorIcon } from "@/components/sharp-box";
 
 export const SectionHeading = ({
   children,

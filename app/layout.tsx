@@ -1,4 +1,4 @@
-import "./globals.css";
+import "@/app/globals.css";
 import { Toaster } from "sonner";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";

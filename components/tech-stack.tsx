@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { forwardRef, useRef } from "react";
-import { AnimatedBeam } from "./ui/animated-beam";
+import { AnimatedBeam } from "@/components/ui/animated-beam";
 import {
   CSS,
   HTML5,
@@ -15,7 +15,7 @@ import {
   TypeScript,
   GitHub,
   Bootstrap,
-} from "./icons";
+} from "@/components/icons";
 
 import {
   Tooltip,

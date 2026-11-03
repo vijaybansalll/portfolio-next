@@ -1,10 +1,10 @@
 "use client";
 
 import Image from "next/image";
-import { Para } from "./para";
-import { AvatarGroup } from "./ui/avatar-group";
+import { Para } from "@/components/para";
+import { AvatarGroup } from "@/components/ui/avatar-group";
 import { motion } from "motion/react";
-import { Pointer } from "./ui/pointer";
+import { Pointer } from "@/components/ui/pointer";
 import { cn } from "@/lib/utils";
 
 interface ProjectCardProps {

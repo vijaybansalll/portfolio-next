@@ -1,5 +1,5 @@
 import { BLOG_CARDS_PROPS } from "@/types/types";
-import { Para } from "./para";
+import { Para } from "@/components/para";
 import Link from "next/link";
 
 const BlogCard = ({

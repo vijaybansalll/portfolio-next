@@ -1,7 +1,7 @@
 import { testimonials } from "@/data/testimonials";
-import { Testimonials } from "./ui/testimonials";
-import { Block } from "./block";
-import { SectionHeading } from "./section-heading";
+import { Testimonials } from "@/components/ui/testimonials";
+import { Block } from "@/components/block";
+import { SectionHeading } from "@/components/section-heading";
 
 const firstColumn = testimonials.slice(0, 3);
 const secondColumn = testimonials.slice(3, 6);

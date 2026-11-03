@@ -3,7 +3,7 @@
 import { cn } from "@/lib/utils";
 import { BLOG_CARDS_PROPS } from "@/types/types";
 import Link from "next/link";
-import { Para } from "./para";
+import { Para } from "@/components/para";
 import { motion } from "motion/react";
 
 export const BlogGridCard = ({

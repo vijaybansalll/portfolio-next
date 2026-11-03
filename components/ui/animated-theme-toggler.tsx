@@ -5,8 +5,8 @@ import { flushSync } from "react-dom";
 import { useTheme } from "next-themes";
 
 import { cn } from "@/lib/utils";
-import { Sun03 } from "../animate-ui/icons/hugeicons/sun-03";
-import { Moon02 } from "../animate-ui/icons/hugeicons/moon-02";
+import { Sun03 } from "@/components/animate-ui/icons/hugeicons/sun-03";
+import { Moon02 } from "@/components/animate-ui/icons/hugeicons/moon-02";
 
 interface AnimatedThemeTogglerProps extends React.ComponentPropsWithoutRef<"button"> {
   duration?: number;
