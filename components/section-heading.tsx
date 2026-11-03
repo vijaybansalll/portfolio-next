@@ -1,6 +1,7 @@
 "use client";
 import { cn } from "@/lib/utils";
 import { motion } from "motion/react";
+import { DecorIcon } from "./sharp-box";
 
 export const SectionHeading = ({
   children,
@@ -15,14 +16,26 @@ export const SectionHeading = ({
       whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
       transition={{ duration: 0.3 }}
       className={cn(
-        "relative w-fit max-w-lg bg-neutral-100 px-2 py-1 text-sm leading-none font-normal text-neutral-500 md:text-base dark:bg-neutral-800 dark:text-neutral-300",
+        "relative w-fit max-w-lg bg-neutral-800 px-2 py-1 text-sm leading-none font-normal text-neutral-100 md:text-sm dark:bg-neutral-100 dark:text-neutral-900",
         className,
       )}
     >
-      <div className="absolute -top-px -left-px h-1 w-1 animate-pulse rounded-full bg-neutral-200 dark:bg-neutral-700"></div>
-      <div className="absolute -top-px -right-px h-1 w-1 animate-pulse rounded-full bg-neutral-200 dark:bg-neutral-700"></div>
-      <div className="absolute -bottom-px -left-px h-1 w-1 animate-pulse rounded-full bg-neutral-200 dark:bg-neutral-700"></div>
-      <div className="absolute -right-px -bottom-px h-1 w-1 animate-pulse rounded-full bg-neutral-200 dark:bg-neutral-700"></div>
+      <DecorIcon
+        className="m-0 size-3 stroke-neutral-900 dark:stroke-neutral-100"
+        position="top-left"
+      />
+      <DecorIcon
+        className="m-0 size-3 stroke-neutral-900 dark:stroke-neutral-100"
+        position="top-right"
+      />
+      <DecorIcon
+        className="m-0 size-3 stroke-neutral-900 dark:stroke-neutral-100"
+        position="bottom-left"
+      />
+      <DecorIcon
+        className="m-0 size-3 stroke-neutral-900 dark:stroke-neutral-100"
+        position="bottom-right"
+      />
       {children}
     </motion.h2>
   );
