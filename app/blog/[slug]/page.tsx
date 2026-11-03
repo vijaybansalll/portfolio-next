@@ -1,18 +1,36 @@
+import type { Metadata } from "next";
 import { Block } from "@/components/block";
 import { Heading } from "@/components/heading";
-import { getPost } from "@/lib/posts";
+import { getPost, getAllPosts } from "@/lib/posts";
 import { cn } from "@/lib/utils";
-import { getAllPosts } from "@/lib/posts";
 import { Para } from "@/components/para";
 import VoiceMessageBubble from "@/components/voice-message-bubble";
 import { BlogTag } from "@/components/blog-tag";
 import BlogSummary from "@/components/blog-summary";
 
-export default async function BlogPost({
-  params,
-}: {
+interface BlogPostProps {
   params: Promise<{ slug: string }>;
-}) {
+}
+
+export async function generateMetadata({
+  params,
+}: BlogPostProps): Promise<Metadata> {
+  const { slug } = await params;
+  const post = await getPost(slug);
+
+  if (!post) {
+    return {
+      title: "Post Not Found | Vijay Bansal",
+    };
+  }
+
+  return {
+    title: `${post.title} | Vijay Bansal`,
+    description: post.description || "Read this article on Vijay Bansal's blog.",
+  };
+}
+
+export default async function BlogPost({ params }: BlogPostProps) {
   const { slug } = await params;
 
   const post = await getPost(slug);

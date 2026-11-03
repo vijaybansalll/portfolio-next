@@ -19,7 +19,7 @@ const HomeProjectsSection = () => {
             img={item.imagePath}
             title={item.title}
             domain={item.domain}
-            description={item.discription}
+            description={item.description}
             techStack={item.techStack}
             priority={index < 3}
           />

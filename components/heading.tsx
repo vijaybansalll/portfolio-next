@@ -30,6 +30,15 @@ export interface HeadingProps
   children: React.ReactNode;
 }
 
+const motionComponents = {
+  h1: motion.create("h1"),
+  h2: motion.create("h2"),
+  h3: motion.create("h3"),
+  h4: motion.create("h4"),
+  h5: motion.create("h5"),
+  h6: motion.create("h6"),
+} as const;
+
 export const Heading = ({
   children,
   className,
@@ -41,7 +50,7 @@ export const Heading = ({
   viewport = { once: true },
   ...props
 }: HeadingProps) => {
-  const Component = motion.create(as);
+  const Component = motionComponents[as];
 
   return (
     <Component

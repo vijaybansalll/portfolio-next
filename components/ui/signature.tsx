@@ -108,7 +108,7 @@ export function Signature({
           setPaths(newPaths);
           setWidth(x + horizontalPadding);
         }
-      } catch (error) {
+      } catch {
         // Fallback when opentype font parsing is unavailable or failed
         // console.warn("Signature font load fallback:", error);
         if (isMounted) {

@@ -12,17 +12,7 @@ import {
   TypeScript,
 } from "@/components/icons";
 
-export interface ProjectItem {
-  imagePath: string;
-  websiteURL: string;
-  title: string;
-  domain: string;
-  discription: string;
-  techStack: {
-    icon: React.ReactNode;
-    name: string;
-  }[];
-}
+import { ProjectItem } from "@/types/types";
 
 export const PROJECTS_DATA: ProjectItem[] = [
   {
@@ -30,7 +20,7 @@ export const PROJECTS_DATA: ProjectItem[] = [
     websiteURL: "https://xchangeon.io/",
     title: "Xchangeon",
     domain: "Crypto Exchange",
-    discription:
+    description:
       "Responsive UI components and interface layouts for seamless interactions.",
     techStack: [
       {
@@ -60,7 +50,7 @@ export const PROJECTS_DATA: ProjectItem[] = [
     websiteURL: "https://wallet.gtifyprotocol.io/",
     title: "Gtify Protocol",
     domain: "Web3 / DeFi",
-    discription:
+    description:
       "Clean, responsive interfaces and intuitive layouts for enhanced usability.",
     techStack: [
       {
@@ -91,7 +81,7 @@ export const PROJECTS_DATA: ProjectItem[] = [
     websiteURL: "https://vijaybansal2004.github.io/Everest-Remit/",
     title: "Everest Remit",
     domain: "Remittance",
-    discription:
+    description:
       "Responsive interface elements with clear visual hierarchy and navigation.",
     techStack: [
       {
@@ -118,7 +108,7 @@ export const PROJECTS_DATA: ProjectItem[] = [
     websiteURL: "https://xauras.io/",
     title: "Xausas",
     domain: "DeFi",
-    discription:
+    description:
       "Interactive admin panel components with smooth and intuitive micro-interactions.",
     techStack: [
       {
@@ -144,7 +134,7 @@ export const PROJECTS_DATA: ProjectItem[] = [
     websiteURL: "https://vijaybansal2004.github.io/bitnetX",
     title: "BitnetX",
     domain: "Crypto Exchange",
-    discription:
+    description:
       "Polished responsive components delivering a smooth, consistent browsing experience.",
 
     techStack: [
@@ -171,7 +161,7 @@ export const PROJECTS_DATA: ProjectItem[] = [
     websiteURL: "https://finsaix.com/",
     title: "FinsaiX",
     domain: "Trading",
-    discription:
+    description:
       "Modern trading platform UI components with refined visual consistency.",
     techStack: [
       {
