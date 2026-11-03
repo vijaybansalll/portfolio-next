@@ -1,5 +1,3 @@
-"use client";
-
 import { Block } from "@/components/block";
 import { LinksProps } from "@/types/types";
 import { GitHub, LinkedIn, X } from "@/components/icons";
@@ -11,25 +9,25 @@ import {
 import Link from "next/link";
 import { Signature } from "@/components/ui/signature";
 
-const Footer = () => {
-  const LINKS: LinksProps[] = [
-    {
-      link: "https://x.com/vijaybansalll",
-      Icon: <X />,
-      name: "X formally Twitter",
-    },
-    {
-      link: "https://www.linkedin.com/in/vijaybansalll",
-      Icon: <LinkedIn />,
-      name: "LinkedIn",
-    },
-    {
-      link: "https://github.com/vijaybansalll",
-      Icon: <GitHub />,
-      name: "GitHub",
-    },
-  ];
+const LINKS: LinksProps[] = [
+  {
+    link: "https://x.com/vijaybansalll",
+    Icon: <X />,
+    name: "X formally Twitter",
+  },
+  {
+    link: "https://www.linkedin.com/in/vijaybansalll",
+    Icon: <LinkedIn />,
+    name: "LinkedIn",
+  },
+  {
+    link: "https://github.com/vijaybansalll",
+    Icon: <GitHub />,
+    name: "GitHub",
+  },
+];
 
+const Footer = () => {
   return (
     <Block>
       <Signature
