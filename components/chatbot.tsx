@@ -3,7 +3,7 @@
 import { cn } from "@/lib/utils";
 import { useCallback, useState } from "react";
 import { Button } from "@/components/ui/button";
-import { AnimatePresence, motion, type Variants } from "framer-motion";
+import { AnimatePresence, motion, type Variants } from "motion/react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
   Tooltip,
@@ -117,7 +117,7 @@ export function Chatbot() {
             <div className="flex items-center justify-between border-b p-4">
               <div className="flex items-center gap-2 md:gap-3">
                 <Avatar className="h-10 w-10">
-                        <AvatarImage src="/logo.jpg" alt="Vijay AI Avatar" />
+                  <AvatarImage src="/logo.jpg" alt="Vijay AI Avatar" />
                   <AvatarFallback>AI</AvatarFallback>
                 </Avatar>
                 <div>
@@ -130,7 +130,12 @@ export function Chatbot() {
 
               <Tooltip>
                 <TooltipTrigger asChild>
-                  <Button size="icon" variant="ghost" onClick={toggleOpen} aria-label="Close Chat">
+                  <Button
+                    size="icon"
+                    variant="ghost"
+                    onClick={toggleOpen}
+                    aria-label="Close Chat"
+                  >
                     <X animateOnHover className="h-4 w-4" />
                   </Button>
                 </TooltipTrigger>
@@ -210,7 +215,11 @@ export function Chatbot() {
                 />
                 <Tooltip>
                   <TooltipTrigger asChild>
-                    <Button size="icon" disabled={!input.trim() || loading} aria-label="Send message">
+                    <Button
+                      size="icon"
+                      disabled={!input.trim() || loading}
+                      aria-label="Send message"
+                    >
                       <Sent animateOnHover className="h-4 w-4" />
                     </Button>
                   </TooltipTrigger>
@@ -231,7 +240,9 @@ export function Chatbot() {
             onClick={toggleOpen}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            aria-label={isOpen ? "Close AI Assistant chat" : "Open AI Assistant chat"}
+            aria-label={
+              isOpen ? "Close AI Assistant chat" : "Open AI Assistant chat"
+            }
             aria-expanded={isOpen}
             className={cn(
               "flex h-14 w-14 items-center justify-center rounded-full bg-neutral-800 text-neutral-100 shadow-lg dark:bg-neutral-100 dark:text-neutral-800",
