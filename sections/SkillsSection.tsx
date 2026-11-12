@@ -5,7 +5,7 @@ import { techIcon } from "@/components/tech-icons";
 import { SKILL_GROUPS } from "@/data/skills";
 
 const pillClassName =
-  "dark:text-vj-secondary-dark inline-flex items-center gap-1.5 rounded-md bg-neutral-100 px-2 py-1 text-xs text-neutral-600 transition-colors hover:bg-neutral-200 hover:text-neutral-900 dark:bg-neutral-800 dark:hover:bg-neutral-700/60 dark:hover:text-neutral-100";
+  "dark:text-vj-secondary-dark inline-flex items-center gap-1.5 rounded-md bg-neutral-100 px-2 py-1 text-xs text-neutral-600 transition-colors hover:bg-neutral-200 hover:text-neutral-900 dark:bg-neutral-900 dark:hover:bg-neutral-700/60 dark:hover:text-neutral-100";
 
 const SkillsSection = () => {
   return (

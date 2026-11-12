@@ -20,9 +20,9 @@ const FocusSection = () => {
           return (
             <div
               key={area.title}
-              className="flex flex-col gap-3 rounded-xl border border-neutral-100 p-4 dark:border-neutral-900"
+              className="flex flex-col gap-3 rounded-xl border border-neutral-200 p-4 dark:border-neutral-800"
             >
-              <span className="grid size-9 place-items-center rounded-lg bg-orange-500/10 text-orange-600 dark:text-orange-400">
+              <span className="grid size-9 place-items-center rounded-lg bg-orange-500/10 text-orange-600 dark:bg-orange-500/20 dark:text-orange-400">
                 <Icon className="size-4" />
               </span>
               <h3 className="text-vj-primary dark:text-vj-primary-dark text-base font-medium tracking-tight">

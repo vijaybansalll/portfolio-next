@@ -1,5 +1,10 @@
 import type { FOCUS_PROPS } from "@/types/types";
 
+export const PROFILE = {
+  name: "Vijay Bansal",
+  email: "gotovijay22@gmail.com",
+} as const;
+
 export const FOCUS_AREAS: FOCUS_PROPS[] = [
   {
     title: "Responsive Web Apps",

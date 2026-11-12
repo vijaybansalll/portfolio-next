@@ -1,7 +1,7 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { AnimatePresence, motion, type Variants } from "motion/react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -13,6 +13,12 @@ import {
 import { MessageCircleMore } from "@/components/animate-ui/icons/hugeicons/message-circle-more";
 import { X } from "@/components/animate-ui/icons/x";
 import { Sent } from "@/components/animate-ui/icons/hugeicons/sent";
+
+const SUGGESTIONS = [
+  "What projects have you built?",
+  "What is your tech stack?",
+  "Tell me about your experience",
+];
 
 const containerVariants: Variants = {
   hidden: { opacity: 0, y: 20, scale: 0.95 },
@@ -43,6 +49,7 @@ export function Chatbot() {
   const [isOpen, setIsOpen] = useState(false);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
+  const scrollRef = useRef<HTMLDivElement>(null);
 
   const [messages, setMessages] = useState([
     {
@@ -52,14 +59,19 @@ export function Chatbot() {
     },
   ]);
 
+  useEffect(() => {
+    const el = scrollRef.current;
+    if (el) el.scrollTo({ top: el.scrollHeight, behavior: "smooth" });
+  }, [messages, loading, isOpen]);
+
   const toggleOpen = useCallback(() => {
     setIsOpen((prev) => !prev);
   }, []);
 
-  const sendMessage = async () => {
-    if (!input.trim()) return;
+  const sendMessage = async (text: string = input) => {
+    if (!text.trim() || loading) return;
 
-    const newMessages = [...messages, { role: "user", content: input }];
+    const newMessages = [...messages, { role: "user", content: text }];
 
     setMessages(newMessages);
     setInput("");
@@ -120,11 +132,13 @@ export function Chatbot() {
                   <AvatarImage src="/logo.jpg" alt="Vijay AI Avatar" />
                   <AvatarFallback>AI</AvatarFallback>
                 </Avatar>
-                <div>
+                <div className="flex flex-col items-start gap-1">
                   <span className="text-sm font-semibold">
                     Vijay&apos;s AI Assistant
                   </span>
-                  <span className="text-muted-foreground text-xs">Online</span>
+                  <span className="rounded-full bg-green-100 px-1.5 py-0.5 text-xs text-green-500 dark:bg-green-950 dark:text-green-400">
+                    Online
+                  </span>
                 </div>
               </div>
 
@@ -146,7 +160,13 @@ export function Chatbot() {
               </Tooltip>
             </div>
 
-            <div className="flex h-80 flex-col gap-4 overflow-y-auto p-4">
+            <div
+              ref={scrollRef}
+              role="log"
+              aria-live="polite"
+              aria-label="Chat messages"
+              className="flex h-80 flex-col gap-4 overflow-y-auto p-4"
+            >
               {messages.map((msg, i) => (
                 <motion.div
                   key={i}
@@ -183,6 +203,21 @@ export function Chatbot() {
                   </div>
                 </motion.div>
               ))}
+
+              {messages.length === 1 && !loading && (
+                <div className="flex flex-wrap gap-2">
+                  {SUGGESTIONS.map((suggestion) => (
+                    <button
+                      key={suggestion}
+                      type="button"
+                      onClick={() => sendMessage(suggestion)}
+                      className="text-muted-foreground hover:bg-muted rounded-full border px-3 py-1 text-xs transition-colors"
+                    >
+                      {suggestion}
+                    </button>
+                  ))}
+                </div>
+              )}
 
               {loading && (
                 <div className="flex gap-3">
