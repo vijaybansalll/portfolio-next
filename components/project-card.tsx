@@ -70,7 +70,7 @@ export const ProjectCard = ({
                   height={1500}
                   priority={priority}
                   sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
-                  style={{ animationDelay: `${index * 0.8}s` }}
+                  style={{ animationDelay: `${index * 0.4}s` }}
                   className={cn(
                     "h-full w-full object-cover object-top",
                     "motion-safe:animate-project-pan group-hover:[animation-play-state:paused]",

@@ -71,7 +71,7 @@
       transform: translate(-50%, -50%) scale(0.9);
     }
   }
-  --animate-project-pan: project-pan 10s ease-in-out infinite;
+  --animate-project-pan: project-pan 15s ease-in-out infinite;
   @keyframes project-pan {
     0%,
     10% {
