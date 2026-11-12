@@ -49,3 +49,20 @@ export type ProjectItem = {
   description: string;
   techStack: TechStackItem[];
 };
+
+export type SKILL_ITEM_PROPS = {
+  name: string;
+  url?: string;
+};
+
+export type SKILL_GROUP_PROPS = {
+  title: string;
+  items: SKILL_ITEM_PROPS[];
+};
+
+export type FOCUS_PROPS = {
+  title: string;
+  description: string;
+  icon: "code" | "chart" | "sparkles";
+  tech: string[];
+};

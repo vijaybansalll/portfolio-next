@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { CallToAction } from "@/components/ui/cta";
+import FocusSection from "@/sections/FocusSection";
+import SkillsSection from "@/sections/SkillsSection";
 import TechStackSection from "@/sections/TechStackSection";
 import HomeCompaniesSection from "@/sections/HomeCompaniesSection";
 
@@ -11,7 +13,9 @@ export const metadata: Metadata = {
 const AboutPage = () => {
   return (
     <div>
+      <FocusSection />
       <TechStackSection />
+      <SkillsSection />
       <HomeCompaniesSection />
       <CallToAction />
     </div>
